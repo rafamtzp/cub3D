@@ -13,7 +13,7 @@
 #include "get_next_line.h"
 
 /*Set malloc to null*/
-void	*ft_calloc(size_t num, size_t size)
+void	*ft_gnl_calloc(size_t num, size_t size)
 {
 	size_t	total;
 	size_t	i;

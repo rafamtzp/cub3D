@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:34:03 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/16 10:21:16 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/21 13:55:39 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int		ft_putchar_fd(char c, int fd);
 
 void	ft_putnbr_fd(int n, int fd);
 
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putstr_fd(char *s, int fd);
 
 void	ft_putendl_fd(char *s, int fd);
 

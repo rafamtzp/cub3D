@@ -25,6 +25,6 @@
 
 char	*get_next_line(int fd);
 bool	ft_get_strchr(const char *s, int c);
-void	*ft_calloc(size_t num, size_t size);
+void	*ft_gnl_calloc(size_t num, size_t size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/19 15:34:09 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/21 14:06:56 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ typedef struct s_textinfo
 	char			*south;
 	char			*west;
 	char			*east;
-	int				*floor;
-	int				*ceiling;
+	int				floor;
+	int				ceiling;
 	unsigned long	hex_floor;
 	unsigned long	hex_ceiling;
 	int				size;
@@ -131,7 +131,7 @@ typedef struct s_ray
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
-} t_ray;
+}	t_ray;
 
 typedef struct s_player
 {
@@ -183,9 +183,10 @@ int		free_data(t_data *data);
 int		check_file(char	*ag, bool cub);
 void	parse_data(char *path, t_data *data);
 int		process_file_data(t_data *data, char **map);
-int		fill_color_textures(t_data *data, t_texinfo *textures, char *line, int j);
+int		fill_color_textures(t_texinfo *textures, char *line, int j);
 int		create_map(t_data *data, char **file, int i);
 int		validate_map(t_data *data, char **map_tab);
+int		validate_textures(t_data *data, t_texinfo *textures);
 
 /* movement */
 void	init_player_direction(t_data *data);

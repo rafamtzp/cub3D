@@ -99,7 +99,7 @@ static char	*read_buffsize(int fd, char *global_buffer)
 	int		bytes_rd;
 
 	if (global_buffer == NULL)
-		global_buffer = ft_calloc(1, sizeof(char));
+		global_buffer = ft_gnl_calloc(1, sizeof(char));
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
