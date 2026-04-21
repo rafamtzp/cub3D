@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 18:20:52 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/18 20:19:47 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/21 14:06:06 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static int	process_line(t_data *data, char *line)
 	else if (ft_strncmp(&line[j], "F ", 2) == 0
 		|| ft_strncmp(&line[j], "C ", 2) == 0)
 	{
-		return (fill_color_textures(data, &data->texinfo, line, j));
+		return (fill_color_textures(&data->texinfo, line, j));
 	}
 	else if (line[j] == '1' || line[j] == '0')
 	{

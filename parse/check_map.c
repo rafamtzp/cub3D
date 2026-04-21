@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 09:30:58 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/19 14:13:08 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/21 14:27:18 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ static int	validate_elements_and_walls(t_data *data, char **map)
 	int	player;
 
 	player = 0;
-	y = 0;
-	while (map[y++])
+	y = -1;
+	while (map[++y])
 	{
-		x = 0;
-		while (map[y][x++])
+		x = -1;
+		while (map[y][++x])
 		{
 			if (ft_strchr("NSEW", map[y][x]))
 			{

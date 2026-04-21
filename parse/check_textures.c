@@ -12,24 +12,10 @@
 
 #include "../cub3d.h"
 
-/* Check if the complete range of RGB is valid */
-static int	check_valid_rgb(int *rgb)
-{
-	int	i;
-
-	i = 0;
-	while (i < 3)
-	{
-		if (rgb[i] < 0 || rgb[i] > 255)
-			return (err_msg(NULL, "Color range must be 0-255", FAILURE));
-		i++;
-	}
-	return (SUCCESS);
-}
-
 /* Validate the the textures to be fill and the RGB*/
 int	validate_textures(t_data *data, t_texinfo *textures)
 {
+	(void)data;
 	if (!textures->north || !textures->south
 		|| !textures->east || !textures->west)
 		return (err_msg(NULL, "Missing wall textures", FAILURE));

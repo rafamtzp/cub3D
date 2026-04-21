@@ -1,0 +1,64 @@
+NAME = cub3D
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
+# Directories
+MINILIBX_DIR = minilibx-linux
+LIBFT_DIR = libft_complete
+
+# Libraries
+MINILIBX = $(MINILIBX_DIR)/libmlx_Linux.a
+LIBFT = $(LIBFT_DIR)/libft.a
+
+# Includes
+INCLUDES = -I. -I$(MINILIBX_DIR) -I$(LIBFT_DIR)
+LIBS = -L$(MINILIBX_DIR) -lmlx_Linux -L$(LIBFT_DIR) -lft -lXext -lX11 -lm
+
+# Source files
+SRCS = main.c \
+	error/error.c \
+	exit/exit.c \
+	exit/free_data.c \
+	init/init.c \
+	init/init_texture.c \
+	init/init_mlx.c \
+	movement/init_player_dir.c \
+	parse/check_args.c \
+	parse/check_map.c \
+	parse/check_textures.c \
+	parse/create_game_map.c \
+	parse/fill_color_textures.c \
+	parse/parse_data.c \
+	parse/process_file_data.c
+
+# Object files
+OBJS = $(SRCS:.c=.o)
+
+# Rules
+all: $(MINILIBX) $(LIBFT) $(NAME)
+
+$(MINILIBX):
+	@make -C $(MINILIBX_DIR)
+
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+clean:
+	@make clean -C $(MINILIBX_DIR)
+	@make clean -C $(LIBFT_DIR)
+	rm -f $(OBJS)
+
+fclean: clean
+	@make fclean -C $(LIBFT_DIR)
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

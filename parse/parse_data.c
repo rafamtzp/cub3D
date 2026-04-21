@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 10:52:32 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/18 20:29:05 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/21 12:04:43 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	fill_table(t_data *data)
 		{
 			free(line);
 			err_msg(NULL, "Could not allocate memory", 0);
-			ft_free_matrix(data->mapinfo.file);
+			ft_free_matrix((void **)data->mapinfo.file);
 			data->mapinfo.file = NULL;
 			return ;
 		}
@@ -88,3 +88,4 @@ void	parse_data(char *path, t_data *data)
 	fill_table(data);
 	close(data->mapinfo.fd);
 }
+

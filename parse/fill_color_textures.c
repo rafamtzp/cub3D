@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 10:54:21 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/16 11:56:57 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/21 15:26:10 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	set_rgb_colours(char	*line)
 		return (-1);
 	if (count_tab(tmp) != 3)
 	{
-		ft_free_matrix(tmp);
+		ft_free_matrix((void **)tmp);
 		return (-1);
 	}
 	i = -1;
@@ -76,32 +76,32 @@ static int	set_rgb_colours(char	*line)
 		rgb[i] = parse_single_rgb(tmp[i]);
 		if (rgb[i] == -1)
 		{
-			ft_free_matrix(tmp);
+			ft_free_matrix((void **)tmp);
 			return (-1);
 		}
 	}
-	ft_free_matrix(tmp);
+	ft_free_matrix((void **)tmp);
 	return (rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
 }
 
 /* Check if the color is duplicate and if not parse the info */
-int	fill_color_textures(t_data *data, t_texinfo *textures, char *line, int j)
+int	fill_color_textures(t_texinfo *textures, char *line, int j)
 {
 	if (line[j] == 'F')
 	{
 		if (textures->floor != -1)
-			return (err_msg("F", "Duplicate color", FAILURE));
+			return (err_msg("Floor", "Duplicate color", FAILURE));
 		textures->floor = set_rgb_colours(&line[j + 1]);
 		if (textures->floor == -1)
-			return (FAILURE);
+			return (err_msg("Floor", "Invalid color format", FAILURE));
 	}
 	else if (line[j] == 'C')
 	{
 		if (textures->ceiling != -1)
-			return (err_msg("C", "Duplicate color", FAILURE));
+			return (err_msg("Ceiling", "Duplicate color", FAILURE));
 		textures->ceiling = set_rgb_colours(&line[j + 1]);
 		if (textures->ceiling == -1)
-			return (FAILURE);
+			return (err_msg("Ceiling", "Invalid color format", FAILURE));
 	}
 	return (SUCCESS);
 }

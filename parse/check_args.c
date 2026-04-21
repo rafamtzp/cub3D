@@ -64,7 +64,7 @@ int	check_file(char	*ag, bool cub)
 	if (fd == -1)
 		return (err_msg(ag, strerror(errno), 1));
 	close(fd);
-	if (cub && !is_cub_file(ag))
+	if (cub && !is_cubed_file(ag))
 		return (err_msg(ag, "Not a .cub file", 1));
 	if (!cub && !is_xpm_file(ag))
 		return (err_msg(ag, "Not a .xmp file", 1));

@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 10:14:06 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/20 09:47:44 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/21 13:08:01 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	init_player_north_south(t_player *player)
 }
 
 /* Initialize direction and camera plane for East/West */
-static void	init_player_east_west(t_player  *player)
+static void	init_player_east_west(t_player *player)
 {
 	if (player->dir == 'W')
 	{

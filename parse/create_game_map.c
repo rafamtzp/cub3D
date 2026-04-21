@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 18:49:16 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/16 20:13:02 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/21 14:50:17 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	fill_map_array(t_data *data, char **file, int i)
 		data->map[row] = malloc(sizeof(char) * (data->mapinfo.width + 1));
 		if (!data->map[row])
 		{
-			ft_free_matrix(data->map);
+			ft_free_matrix((void **)data->map);
 			return (FAILURE);
 		}
 		ft_memset(data->map[row], ' ', data->mapinfo.width);
@@ -42,7 +42,22 @@ static int	fill_map_array(t_data *data, char **file, int i)
 	return (SUCCESS);
 }
 
-/* Count how many lines are from i index */
+/* Check if the line is completely blank or only spaces */
+static int	is_line_empty(char *line)
+{
+	int	j;
+
+	j = 0;
+	while (line[j])
+	{
+		if (!ft_is_space(line[j]))
+			return (0);
+		j++;
+	}
+	return (1);
+}
+
+/* Count how many lines are from i index, stopping at an empty line */
 static int	count_map_lines(char **file, int i)
 {
 	int	count;
@@ -50,26 +65,33 @@ static int	count_map_lines(char **file, int i)
 	count = 0;
 	while (file[i])
 	{
+		if (is_line_empty(file[i]))
+			break ;
 		i++;
 		count++;
 	}
 	return (count);
 }
 
-/* Count the max width of the map */
-static int	get_max_width(char **file, int i)
+/* Count the max width of the map until the calculated height */
+static int	get_max_width(char **file, int i, int height)
 {
 	int	max_w;
 	int	len;
+	int	n;
 
 	max_w = 0;
-	while (file[i])
+	n = 0;
+	while (file[i] && n < height)
 	{
 		len = ft_strlen(file[i]);
 		if (len > max_w)
 			max_w = len;
 		i++;
+		n++;
 	}
+	if (max_w > 0 && file[i - 1][max_w - 1] == '\n')
+		max_w--;
 	return (max_w);
 }
 
@@ -77,7 +99,8 @@ static int	get_max_width(char **file, int i)
 int	create_map(t_data *data, char **file, int i)
 {
 	data->mapinfo.height = count_map_lines(file, i);
-	data->mapinfo.width = get_max_width(file, i);
+	data->mapinfo.width = get_max_width(file, i, data->mapinfo.height);
+	data->mapinfo.index_end_of_map = i + data->mapinfo.height;
 	data->map = malloc(sizeof(char *) * (data->mapinfo.height + 1));
 	if (!data->map)
 		return (err_msg(NULL, "Malloc map failed", FAILURE));
