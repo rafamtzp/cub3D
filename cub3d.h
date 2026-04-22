@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/22 11:37:53 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/22 14:05:19 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,7 @@ void	init_data(t_data *data);
 void	init_texinfo(t_texinfo *texture);
 void	init_img_clean(t_img *img);
 void	init_ray_clean(t_ray *ray);
+int	init_texture(t_data *data);
 
 /* exit */
 void	clean_and_exit(t_data *data, int code);

@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:24:21 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/21 19:11:36 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/22 15:18:21 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ int	main(int argc, char **argv)
 	if (parse_args(&data, argv) != 0)
 		return (1);
 	printf("%c, NICE!", '\n');
-	init_mlx(&data);
-	//init textures
+	if (init_mlx(&data) == FAILURE)
+		clean_and_exit(&data, FAILURE);
+	if (init_texture(&data) == FAILURE)
+		clean_and_exit(&data, FAILURE);
 	//controls
 	//render
 	//listen for inputs

@@ -6,14 +6,14 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 10:38:10 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/21 19:20:20 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/22 11:27:23 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
 /* initialize mlx and the mlx window */
-void init_mlx(t_data *data)
+void	init_mlx(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)

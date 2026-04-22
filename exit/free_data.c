@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 11:12:47 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/18 20:32:25 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/22 15:04:42 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,23 @@ static void	free_texinfo(t_texinfo *textures)
 /* Clean the texture matrix and pixel buffer */
 int	free_data(t_data *data)
 {
+	int	i;
+
 	if (data->textures)
-		ft_free_matrix((void **)data->textures);
+	{
+		i = 0;
+		while (i < 4)
+		{
+			if (data->textures[i])
+				free(data->textures[i]);
+			i++;
+		}
+		free(data->textures);
+		data->textures = NULL;
+	}
 	if (data->texture_pixels)
 		ft_free_matrix((void **)data->texture_pixels);
+	data->texture_pixels = NULL;
 	free_texinfo(&data->texinfo);
 	free_map(data);
 	return (1);
