@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 09:27:32 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/18 20:46:28 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/22 17:30:58 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ int	check_file(char	*ag, bool cub)
 		return (err_msg(ag, "Not a .cub file", 1));
 	if (!cub && !is_xpm_file(ag))
 		return (err_msg(ag, "Not a .xmp file", 1));
-	return (Success);
+	return (SUCCESS);
 }

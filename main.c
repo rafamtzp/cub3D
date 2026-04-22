@@ -6,11 +6,27 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:24:21 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/22 15:33:48 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/22 17:49:49 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	print_controls(void)
+{
+	printf(CYAN "\n");
+	printf("░█▀▀░█░█░█▀▄░▀▀█░█▀▄░░░█▀▀░█▀█░█▀█░▀█▀░█▀▄░█▀█░█░░░█▀▀\n");
+	printf("░█░░░█░█░█▀▄░░▀▄░█░█░░░█░░░█░█░█░█░░█░░█▀▄░█░█░█░░░▀▀█\n");
+	printf("░▀▀▀░▀▀▀░▀▀░░▀▀░░▀▀░░░░▀▀▀░▀▀▀░▀░▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀▀▀\n");
+	printf(RESET "\n");
+	printf(CYAN "\tW" RESET ": move forward\t");
+	printf(CYAN "\tS" RESET ": move backward\n");
+	printf(CYAN "\tA" RESET ": strafe left\t");
+	printf(CYAN "\tD" RESET ": strafe right\n");
+	printf(CYAN "\t← " RESET ": rotate left\t");
+	printf(CYAN "\t→ " RESET ": rotate right\n");
+	printf("\n");
+}
 
 /* Check for validations and parse args untill player direction */
 static int	parse_args(t_data *data, char **argv)
@@ -40,8 +56,7 @@ int	main(int argc, char **argv)
 	init_mlx(&data);
 	if (init_texture(&data) == FAILURE)
 		clean_and_exit(&data, FAILURE);
-	printf("%c, NICE!", '\n');
-		//controls
+	print_controls();
 	//render
 	//listen for inputs
 	//mlx loop hook
