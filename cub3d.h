@@ -6,43 +6,43 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/21 14:06:56 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/22 11:37:53 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-#include "minilibx-linux/mlx.h"
-#include "./libft_complete/ft_libft/libft.h"
-#include "colors.h"
-#include <errno.h>
-#include <fcntl.h>
-#include <math.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <X11/keysym.h>
-#include <X11/X.h>
+# include "minilibx-linux/mlx.h"
+# include "./libft_complete/ft_libft/libft.h"
+# include "colors.h"
+# include <errno.h>
+# include <fcntl.h>
+# include <math.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <unistd.h>
+# include <X11/keysym.h>
+# include <X11/X.h>
 
 
 /***************************** MACROS *****************************/
 
-#define WIN_HEIGHT 480
-#define WIN_WIDTH 640
+# define WIN_HEIGHT 480
+# define WIN_WIDTH 640
 
-#define TEX_SIZE 64
+# define TEX_SIZE 64
 
 # ifndef O_DIRECTORY
 #  define O_DIRECTORY 00200000
 # endif
 
 /***************************** ERROR_MESSAGE *****************************/
-#define ERROR_USAGE "usage: ./cub3d <path/to/map.cub>"
+# define ERROR_USAGE "usage: ./cub3d <path/to/map.cub>"
 
 enum e_texture_index
 {
@@ -176,17 +176,17 @@ void	init_ray_clean(t_ray *ray);
 
 /* exit */
 void	clean_and_exit(t_data *data, int code);
-int		quit_cub3d(t_data  *data);
-int		free_data(t_data *data);
+int	quit_cub3d(t_data *data);
+int	free_data(t_data *data);
 
 /* parse */
-int		check_file(char	*ag, bool cub);
+int	check_file(char	*ag, bool cub);
 void	parse_data(char *path, t_data *data);
-int		process_file_data(t_data *data, char **map);
-int		fill_color_textures(t_texinfo *textures, char *line, int j);
-int		create_map(t_data *data, char **file, int i);
-int		validate_map(t_data *data, char **map_tab);
-int		validate_textures(t_data *data, t_texinfo *textures);
+int	process_file_data(t_data *data, char **map);
+int	fill_color_textures(t_texinfo *textures, char *line, int j);
+int	create_map(t_data *data, char **file, int i);
+int	validate_map(t_data *data, char **map_tab);
+int	validate_textures(t_data *data, t_texinfo *textures);
 
 /* movement */
 void	init_player_direction(t_data *data);
