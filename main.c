@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:24:21 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/22 17:49:49 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/23 19:05:08 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int argc, char **argv)
 		clean_and_exit(&data, FAILURE);
 	print_controls();
 	//render
-	//listen for inputs
+	wait_for_input(&data);
 	//mlx loop hook
 	//mlx loop
 	return (0);

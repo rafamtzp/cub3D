@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/22 15:32:41 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/23 19:05:29 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,16 @@ typedef struct s_data
 	t_img		minimap;
 }	t_data;
 
+typedef struct s_keys
+{
+	int	w;
+	int	s;
+	int	a;
+	int	d;
+	int	left;
+	int	right;
+}t_keys;
+
 /***************************** FUNCTIONS *****************************/
 
 int	err_msg(char *detail, char *str, int code);
@@ -192,5 +202,6 @@ int	validate_textures(t_data *data, t_texinfo *textures);
 
 /* movement */
 void	init_player_direction(t_data *data);
+void	wait_for_input(t_data *data);
 
 #endif

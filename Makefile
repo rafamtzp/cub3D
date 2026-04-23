@@ -30,7 +30,8 @@ SRCS = main.c \
 	parse/create_game_map.c \
 	parse/fill_color_textures.c \
 	parse/parse_data.c \
-	parse/process_file_data.c
+	parse/process_file_data.c \
+	movement/input_handler.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
