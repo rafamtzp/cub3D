@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/23 19:05:29 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/27 19:52:00 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ typedef struct s_data
 	int			**textures;
 	t_texinfo	texinfo;
 	t_img		minimap;
+	t_keys		keys;
 }	t_data;
 
 typedef struct s_keys
@@ -185,6 +186,7 @@ void	init_img_clean(t_img *img);
 void	init_ray_clean(t_ray *ray);
 int		init_texture(t_data *data);
 void	init_mlx(t_data *data);
+void	init_player_direction(t_data *data);
 
 /* exit */
 void	clean_and_exit(t_data *data, int code);
@@ -201,7 +203,6 @@ int	validate_map(t_data *data, char **map_tab);
 int	validate_textures(t_data *data, t_texinfo *textures);
 
 /* movement */
-void	init_player_direction(t_data *data);
 void	wait_for_input(t_data *data);
 
 #endif

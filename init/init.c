@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/18 20:31:30 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/27 19:48:36 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,16 @@ static void	init_player(t_player *player)
 	player->rotate = 0;
 }
 
+static void	init_keys(t_keys *keys)
+{
+	keys->w = 0;
+	keys->s = 0;
+	keys->a = 0;
+	keys->d = 0;
+	keys->left = 0;
+	keys->right = 0;
+}
+
 /* Init base data */
 void	init_data(t_data *data)
 {
@@ -80,6 +90,7 @@ void	init_data(t_data *data)
 	data->win_height = WIN_HEIGHT;
 	data->win_width = WIN_WIDTH;
 	init_player(&data->player);
+	init_keys(&data->keys);
 	init_texinfo(&data->texinfo);
 	data->map = NULL;
 	init_mapinfo(&data->mapinfo);
