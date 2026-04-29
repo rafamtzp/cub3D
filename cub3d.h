@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/27 19:52:00 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/29 17:56:56 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ typedef struct s_ray
 
 typedef struct s_player
 {
-	char	dir;
+	char	dir; // what is this? N S E or W?
 	double	pos_x;
 	double	pos_y;
 	double	dir_x;
@@ -143,6 +143,8 @@ typedef struct s_player
 	double	plane_x;
 	double	plane_y;
 	int		has_moved;
+	int		map_x;
+	int		map_y;
 	int		move_x;
 	int		move_y;
 	int		rotate;
@@ -154,6 +156,9 @@ typedef struct s_data
 	void		*win;
 	int			win_height;
 	int			win_width;
+	int			line_height;
+	int			draw_start;
+	int			draw_end;
 	t_mapinfo	mapinfo;
 	char		**map;
 	t_player	player;
