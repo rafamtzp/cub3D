@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/29 17:56:56 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/04/30 15:28:49 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ typedef struct s_textinfo
 	int				size;
 	int				index;
 	double			step;
-	double			possition;
+	double			position;
 	int				x;
 	int				y;
 }	t_texinfo;

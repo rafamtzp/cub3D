@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 10:27:04 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/22 15:10:00 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/04/30 15:28:49 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	init_texinfo(t_texinfo *texture)
 	texture->hex_ceiling = 0x0;
 	texture->size = TEX_SIZE;
 	texture->step = 0.0;
-	texture->possition = 0.0;
+	texture->position = 0.0;
 	texture->x = 0;
 	texture->y = 0;
 }

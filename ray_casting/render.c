@@ -23,7 +23,6 @@ static void	set_up_vectors(t_data *data, t_player *player, t_ray *ray, int x)
 	// distance increments for ray scaled by 1/|raydir|
 	ray->deltadist_x = absval(1/ray->dir_x);
 	ray->deltadist_y = ablsval(1/ray->dir_y);
-
 }
 
 static void	init_sidedists_and_steps(t_ray *ray, t_player *player)
@@ -89,11 +88,62 @@ static void	calc_line_height(t_data *data, double perp_dist)
 		data->draw_end = data->win_height - 1;
 }
 
+static void	texture_calculations(t_data *data, t_player *player, t_ray *ray, int perp_dist)
+{
+	t_texinfo tex;
+
+	// calculate wall_x (proportional distance between lesser grid line and hit point)
+	tex = data->texinfo;
+	if (ray->side == 0)
+		ray->wall_x = player->pos_y + perp_dist * ray->dir_y;
+	else
+		ray->wall_x = player->pos_x + perp_dist * ray->dir_x;
+	ray->wall_x -= floor(ray->wall_x);
+	// horizontal coord. on texture
+	tex.x = (int)ray->wall_x * (double)tex.size;
+	// need to get the distance from hit point to greater grid line in some cases
+	if ((ray->side == 0 && ray->dir_x > 0) || (ray->side == 1 && ray->dir_y < 0))
+		tex.x = tex.size - 1 - tex.x;
+	// amount by which texture coord. increases per pixel on the screen
+	tex.step = (double)tex.size / ray->line_height;
+	tex.position = (ray->draw_start - data->win_height / 2 + data->line_height / 2) * tex.step;
+}
+
+static int	get_textype(t_ray ray)
+{
+	if (ray.dir_y < 0 && ray.side == 1)
+		return (SOUTH);
+	if (ray.dir_y > 0 && ray.side == 1)
+		return (NORTH);
+	if (ray.dir_x < 0 && ray.side == 0)
+		return (WEST);
+	if (ray.dir_x < 0 && ray.side == 0)
+		return (EAST);
+}
+
+static void	copy_line_pixels(uint32_t *buffer, t_data *data, t_ray *ray)
+{
+	int y;
+	int textype;
+	t_texinfo tex;
+	uint32_t color;
+
+	tex = data->texinfo;
+	textype = get_textype(*ray);
+	y = data->draw_start;
+	while (y < data->draw_end)
+	{
+		tex.y = (int)tex.position;
+		tex.position += tex.step;
+		color = data->textures[textype][]; // TODO
+	}
+}
+
 void	ray_caster(t_data *data, t_player *player, t_ray *ray)
 {
 	double perp_dist;
+	uint32_t buffer[data->texinfo.size][data->texinfo.size];
 	int x;
-	int y;
 
 	x = 0;
 	while (x < data->win_width)
@@ -102,10 +152,9 @@ void	ray_caster(t_data *data, t_player *player, t_ray *ray)
 		init_sidedists_and_steps(ray, player);
 		perp_dist = dda_algo(data, player, ray);
 		calc_line_height(data, perp_dist);
-		texture_calculations()
-
+		texture_calculations(data, player, ray, perp_dist);
+		copy_line_pixels(data);
 		x++;
 	}
-	
-
+	draw_and_clear_buffer(&buffer, ); //TODO
 }
