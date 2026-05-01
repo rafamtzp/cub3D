@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 11:12:47 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/22 15:04:42 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:18:15 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,13 @@ int	free_data(t_data *data)
 		free(data->textures);
 		data->textures = NULL;
 	}
-	if (data->texture_pixels)
-		ft_free_matrix((void **)data->texture_pixels);
-	data->texture_pixels = NULL;
+	// if (data->texture_pixels) // not using texture_pixels
+	// 	ft_free_matrix((void **)data->texture_pixels);
+	// data->texture_pixels = NULL;
+	// Rafa's version:
+	if (data->win_img.buf)
+		mlx_destroy_image(data->mlx, data->win_img.buf);
+
 	free_texinfo(&data->texinfo);
 	free_map(data);
 	return (1);

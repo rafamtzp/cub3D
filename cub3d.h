@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/30 15:28:49 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/01 18:30:05 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ enum e_output
 typedef struct s_img
 {
 	void	*img;
-	int		*adrres;
+	uint32_t		*buf; // changed int * to uint32_t *
+	// also changed name from address to buf
 	int		pixel_bits;
 	int		size_line;
 	int		endian;
@@ -150,6 +151,16 @@ typedef struct s_player
 	int		rotate;
 }	t_player;
 
+typedef struct s_keys
+{
+	int	w;
+	int	s;
+	int	a;
+	int	d;
+	int	left;
+	int	right;
+}	t_keys;
+
 typedef struct s_data
 {
 	void		*mlx;
@@ -163,22 +174,15 @@ typedef struct s_data
 	char		**map;
 	t_player	player;
 	t_ray		ray;
-	int			**texture_pixels;
+	//int			**texture_pixels;
+	t_img		win_img;
 	int			**textures;
 	t_texinfo	texinfo;
 	t_img		minimap;
 	t_keys		keys;
 }	t_data;
 
-typedef struct s_keys
-{
-	int	w;
-	int	s;
-	int	a;
-	int	d;
-	int	left;
-	int	right;
-}t_keys;
+
 
 /***************************** FUNCTIONS *****************************/
 
@@ -209,5 +213,11 @@ int	validate_textures(t_data *data, t_texinfo *textures);
 
 /* movement */
 void	wait_for_input(t_data *data);
+
+/* ray casting */
+void	ray_cast(t_data *data, t_player *player, t_ray *ray);
+double	dda_algo(t_data *data, t_player *player, t_ray *ray);
+void	set_up_vectors(t_data *data, t_player *player, t_ray *ray, int x);
+void	init_sidedists_and_steps(t_ray *ray, t_player *player);
 
 #endif

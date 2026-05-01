@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 10:27:04 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/30 15:28:49 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:03:16 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static int	*get_texture_pixels(void *img)
 }
 
 /* Reserves buffer for pixels for the render */
+/*
 static int	init_pixel_buffer(t_data *data)
 {
 	int	i;
@@ -45,6 +46,18 @@ static int	init_pixel_buffer(t_data *data)
 		i++;
 	}
 	return (SUCCESS);
+}
+*/
+// Rafa's version
+static int	init_pixel_buffer(t_data *data)
+{
+	t_img img;
+	
+	img = data->win_img;
+	img.img = mlx_new_image(data->mlx, data->win_width, data->win_height);
+	img.buf = (uint32_t *)mlx_get_data_addr(img.img, &img.pixel_bits, &img.size_line, &img.endian);
+	if (!img.buf)
+		return (FAILURE);
 }
 
 /* Loads one xpm texture and checks its dimensions */
@@ -98,7 +111,7 @@ int	init_texture(t_data *data)
 	return (SUCCESS);
 }
 
-/* Inicialize texture info */
+/* Initialize texture info */
 void	init_texinfo(t_texinfo *texture)
 {
 	texture->north = NULL;

@@ -31,7 +31,10 @@ SRCS = main.c \
 	parse/fill_color_textures.c \
 	parse/parse_data.c \
 	parse/process_file_data.c \
-	movement/input_handler.c
+	movement/input_handler.c \
+	ray_casting/dda_algo.c \
+	ray_casting/ray_cast_init.c \
+	ray_casting/ray_cast.c \
 
 # Object files
 OBJS = $(SRCS:.c=.o)

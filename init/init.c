@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/27 19:48:36 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/01 14:32:47 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	init_img_clean(t_img *img)
 {
 	img->img = NULL;
-	img->adrres = NULL;
+	img->buf = NULL;
 	img->pixel_bits = 0;
 	img->size_line = 0;
 	img->endian = 0;
@@ -95,6 +95,6 @@ void	init_data(t_data *data)
 	data->map = NULL;
 	init_mapinfo(&data->mapinfo);
 	init_img_clean(&data->minimap);
-	data->texture_pixels = NULL;
+	//data->texture_pixels = NULL; // won't be using it
 	data->textures = NULL;
 }

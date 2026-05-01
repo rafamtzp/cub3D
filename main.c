@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:24:21 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/23 19:05:08 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/01 15:21:35 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int	main(int argc, char **argv)
 	if (init_texture(&data) == FAILURE)
 		clean_and_exit(&data, FAILURE);
 	print_controls();
-	//render
+	while (1)
+		ray_cast(&data, &data.player, &data.ray);
 	wait_for_input(&data);
 	//mlx loop hook
 	//mlx loop
