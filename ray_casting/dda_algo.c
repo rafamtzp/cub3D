@@ -3,6 +3,7 @@
 double	dda_algo(t_data *data, t_ray *ray)
 {
 	int is_hit;
+	double perp_dist;
 
 	is_hit = 0;
 	while (is_hit == 0)
@@ -23,6 +24,10 @@ double	dda_algo(t_data *data, t_ray *ray)
 			is_hit = 1;
 	}
 	if (ray->side == 0)
-		return (ray->sidedist_x - ray->deltadist_x);
-	return (ray->sidedist_y - ray->deltadist_y);
+		perp_dist = ray->sidedist_x - ray->deltadist_x;
+	else
+		perp_dist = ray->sidedist_y - ray->deltadist_y;
+	if (perp_dist < 0.0001)
+		perp_dist = 0.0001;
+	return (perp_dist);
 }

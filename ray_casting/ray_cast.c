@@ -61,6 +61,7 @@ static void	copy_pixel_column(t_img *img, t_data *data, t_ray *ray, int x)
 		img->buf[y * img->size_line/4 + x] = (uint32_t)data->texinfo.ceiling; // hex floor is a different data type but let's see what happens
 		y++;
 	}
+	//printf("PASSED CEILING LOOP\n");
 	while (y < data->draw_end)
 	{
 		tex.y = (int)tex.position;
@@ -75,12 +76,14 @@ static void	copy_pixel_column(t_img *img, t_data *data, t_ray *ray, int x)
 		img->buf[y * img->size_line/4 + x] = color;
 		y++;
 	}
+	//printf("PASSED TEXTURE LOOP\n");
 	//draw floor
 	while (y < data->win_height)
 	{
 		img->buf[y * img->size_line/4 + x] = (uint32_t)data->texinfo.floor;
 		y++;
 	}
+	//printf("PASSED FLOOR LOOP\n");
 }
 
 void	ray_cast(t_data *data, t_player *player, t_ray *ray)
