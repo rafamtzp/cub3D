@@ -42,6 +42,7 @@ static int	get_textype(t_ray ray)
 		return (WEST);
 	if (ray.dir_x < 0 && ray.side == 0)
 		return (EAST);
+	return (FAILURE);
 }
 
 static void	copy_pixel_column(t_img *img, t_data *data, t_ray *ray, int x)
@@ -53,23 +54,33 @@ static void	copy_pixel_column(t_img *img, t_data *data, t_ray *ray, int x)
 
 	tex = data->texinfo;
 	textype = get_textype(*ray);
+	printf("a\n");
 	y = 0;
 	// draw ceiling
+	printf("%i\n", data->draw_start);
 	while (y < data->draw_start)
-		img->buf[y * img->size_line/4 + x] = data->texinfo.hex_floor; // hex floor is a different data type but let's see what happens
+		img->buf[y * img->size_line/4 + x] = data->texinfo.hex_ceiling; // hex floor is a different data type but let's see what happens
 	// draw texture
+	printf("b\n");
 	while (y < data->draw_end)
 	{
 		tex.y = (int)tex.position;
 		tex.position += tex.step;
+		printf("c\n");
 		color = data->textures[textype][TEX_SIZE * tex.y + tex.x];
+		printf("d\n");
 		if (ray->side == 1)
 			color = (color << 1) & 8355711;
+		printf("e\n");
+		if (img->buf)
 		img->buf[y * img->size_line/4 + x] = color;
+		printf("f\n");
 	}
+	printf("d\n");
 	//draw floor
 	while (y < data->win_height)
-		img->buf[y * img->size_line/4 + x] = data->texinfo.hex_ceiling;
+		img->buf[y * img->size_line/4 + x] = data->texinfo.hex_floor;
+	printf("e\n");
 }
 
 void	ray_cast(t_data *data, t_player *player, t_ray *ray)
@@ -82,13 +93,12 @@ void	ray_cast(t_data *data, t_player *player, t_ray *ray)
 	{
 		set_up_vectors(data, player, ray, x);
 		init_sidedists_and_steps(ray, player);
-		perp_dist = dda_algo(data, player, ray);
+		perp_dist = dda_algo(data, ray);
 		calc_line_height(data, perp_dist);
 		texture_calculations(data, player, ray, perp_dist);
-		copy_pixel_column(data->win_img.buf, data, ray, x);
+		copy_pixel_column(&data->win_img, data, ray, x);
 		x++;
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->win_img.img, 0, 0);
 	ft_memset(data->win_img.buf, 0, data->win_height * data->win_img.size_line);
 }
-

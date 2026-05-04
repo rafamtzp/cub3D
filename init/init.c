@@ -6,11 +6,11 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/01 14:32:47 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/04 12:46:21 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 /* Init clean img */
 void	init_img_clean(t_img *img)

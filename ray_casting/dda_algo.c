@@ -1,11 +1,11 @@
 #include "../cub3d.h"
 
-double	dda_algo(t_data *data, t_player *player, t_ray *ray)
+double	dda_algo(t_data *data, t_ray *ray)
 {
 	int is_hit;
 
 	is_hit = 0;
-	while (is_hit = 0)
+	while (is_hit == 0)
 	{
 		if (ray->sidedist_x < ray->sidedist_y)
 		{
@@ -19,7 +19,7 @@ double	dda_algo(t_data *data, t_player *player, t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		if (data->map[ray->map_x][ray->map_y] == '1')
+		if (data->map[ray->map_y][ray->map_x] == '1')
 			is_hit = 1;
 	}
 	if (ray->side == 0)

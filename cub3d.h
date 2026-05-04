@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/01 18:30:05 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/04 12:33:20 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,7 +216,7 @@ void	wait_for_input(t_data *data);
 
 /* ray casting */
 void	ray_cast(t_data *data, t_player *player, t_ray *ray);
-double	dda_algo(t_data *data, t_player *player, t_ray *ray);
+double	dda_algo(t_data *data, t_ray *ray);
 void	set_up_vectors(t_data *data, t_player *player, t_ray *ray, int x);
 void	init_sidedists_and_steps(t_ray *ray, t_player *player);
 
