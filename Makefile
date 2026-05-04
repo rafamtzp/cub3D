@@ -31,6 +31,7 @@ SRCS = main.c \
 	parse/parse_data.c \
 	parse/process_file_data.c \
 	movement/input_handler.c \
+	movement/player_movement.c\
 	ray_casting/dda_algo.c \
 	ray_casting/ray_cast_init.c \
 	ray_casting/ray_cast.c \

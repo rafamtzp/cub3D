@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/04 12:33:20 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/04 16:25:02 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,7 @@ int	validate_textures(t_data *data, t_texinfo *textures);
 
 /* movement */
 void	wait_for_input(t_data *data);
+void	update_player(t_data *data);
 
 /* ray casting */
 void	ray_cast(t_data *data, t_player *player, t_ray *ray);

@@ -21,8 +21,8 @@ void	set_up_vectors(t_data *data, t_player *player, t_ray *ray, int x)
 	ray->map_x = (int)player->pos_x;
 	ray->map_y = (int)player->pos_y;
 	// distance increments for ray scaled by 1/|raydir|
-	ray->deltadist_x = absval(1/ray->dir_x);
-	ray->deltadist_y = absval(1/ray->dir_y);
+	ray->deltadist_x = absval(1 / ray->dir_x);
+	ray->deltadist_y = absval(1 / ray->dir_y);
 }
 
 void	init_sidedists_and_steps(t_ray *ray, t_player *player)
