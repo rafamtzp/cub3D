@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 10:27:04 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/01 15:03:16 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/04 14:42:51 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,9 @@ static int	init_pixel_buffer(t_data *data)
 // Rafa's version
 static int	init_pixel_buffer(t_data *data)
 {
-	t_img img;
-	
-	img = data->win_img;
-	img.img = mlx_new_image(data->mlx, data->win_width, data->win_height);
-	img.buf = (uint32_t *)mlx_get_data_addr(img.img, &img.pixel_bits, &img.size_line, &img.endian);
-	if (!img.buf)
+	data->win_img.img = mlx_new_image(data->mlx, data->win_width, data->win_height);
+	data->win_img.buf = (uint32_t *)mlx_get_data_addr(data->win_img.img, &data->win_img.pixel_bits, &data->win_img.size_line, &data->win_img.endian);
+	if (!data->win_img.buf)
 		return (FAILURE);
 	return (SUCCESS);
 }

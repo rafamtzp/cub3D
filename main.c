@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:24:21 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/04 12:44:19 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/04 13:46:50 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int	main(int argc, char **argv)
 	if (init_texture(&data) == FAILURE)
 		clean_and_exit(&data, FAILURE);
 	print_controls();
-	while(1)
-		ray_cast(&data, &data.player, &data.ray);
+	ray_cast(&data, &data.player, &data.ray);
+	sleep(120);
 	wait_for_input(&data);
 	//mlx loop hook
 	//mlx loop
