@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/04 12:46:21 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/04 16:52:46 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	init_ray_clean(t_ray *ray)
 	ray->wall_dist = 0;
 	ray->wall_x = 0;
 	ray->side = 0;
-	ray->line_height = 0;
 	ray->draw_start = 0;
 	ray->draw_end = 0;
 }
