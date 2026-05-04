@@ -58,6 +58,7 @@ static int	init_pixel_buffer(t_data *data)
 	img.buf = (uint32_t *)mlx_get_data_addr(img.img, &img.pixel_bits, &img.size_line, &img.endian);
 	if (!img.buf)
 		return (FAILURE);
+	return (SUCCESS);
 }
 
 /* Loads one xpm texture and checks its dimensions */

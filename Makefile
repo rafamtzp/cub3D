@@ -23,7 +23,6 @@ SRCS = main.c \
 	init/init.c \
 	init/init_texture.c \
 	init/init_mlx.c \
-	movement/init_player_dir.c \
 	parse/check_args.c \
 	parse/check_map.c \
 	parse/check_textures.c \
@@ -35,6 +34,7 @@ SRCS = main.c \
 	ray_casting/dda_algo.c \
 	ray_casting/ray_cast_init.c \
 	ray_casting/ray_cast.c \
+	init/init_player_dir.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
