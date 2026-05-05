@@ -25,7 +25,8 @@ static void	texture_calculations(t_data *data, t_player *player, t_ray *ray, dou
 	// horizontal coord. on texture
 	tex->x = (int)(ray->wall_x * TEX_SIZE);
 	// need to get the distance from hit point to greater grid line in some cases
-	if ((ray->side == 0 && ray->dir_x > 0) || (ray->side == 1 && ray->dir_y < 0))
+	// NEGATED THIS TO FLIP TEXTURES! 5/5/26
+	if (!(ray->side == 0 && ray->dir_x > 0) && !(ray->side == 1 && ray->dir_y < 0))
 		tex->x = TEX_SIZE - 1 - tex->x;
 	// amount by which texture coord. increases per pixel on the screen
 	tex->step = (double)TEX_SIZE / data->line_height;
@@ -34,9 +35,9 @@ static void	texture_calculations(t_data *data, t_player *player, t_ray *ray, dou
 
 static int	get_textype(t_ray ray)
 {
-	if (ray.dir_y < 0 && ray.side == 1)
-		return (SOUTH);
 	if (ray.dir_y > 0 && ray.side == 1)
+		return (SOUTH);
+	if (ray.dir_y < 0 && ray.side == 1)
 		return (NORTH);
 	if (ray.dir_x < 0 && ray.side == 0)
 		return (WEST);

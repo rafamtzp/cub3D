@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 17:37:28 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/27 19:44:33 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/05 17:04:49 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	update_axis_values(t_data *data)
 {
 	data->player.move_y = data->keys.w - data->keys.s;
-	data->player.move_x = data->keys.d - data->keys.a;
+	data->player.move_x = data->keys.a - data->keys.d;
 	data->player.rotate = data->keys.right - data->keys.left;
 }
 

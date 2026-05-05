@@ -12,8 +12,8 @@ void	set_up_vectors(t_data *data, t_player *player, t_ray *ray, int x)
 	// x-coordinate along the camera line and factor by which you scale plane from -1 to 1
 	ray->camera_x = 2*x/(double)data->win_width - 1;
 	// plane vector (perpendicular to dir)
-	player->plane_x = player->dir_y;
-	player->plane_y = -1 * player->dir_x;
+	player->plane_x = -1 * player->dir_y;
+	player->plane_y = player->dir_x;
 	// ray direction
 	ray->dir_x = player->dir_x + player->plane_x * ray->camera_x;
 	ray->dir_y = player->dir_y + player->plane_y * ray->camera_x;
