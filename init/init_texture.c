@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 10:27:04 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/04 14:42:51 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:25:24 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,6 @@ static int	*get_texture_pixels(void *img)
 	return (pixels);
 }
 
-/* Reserves buffer for pixels for the render */
-/*
-static int	init_pixel_buffer(t_data *data)
-{
-	int	i;
-
-	data->texture_pixels = ft_calloc(data->win_height + 1, sizeof(int *));
-	if (!data->texture_pixels)
-		return (FAILURE);
-	i = 0;
-	while (i < data->win_height)
-	{
-		data->texture_pixels[i] = ft_calloc(data->win_width, sizeof(int));
-		if (!data->texture_pixels[i])
-			return (FAILURE);
-		i++;
-	}
-	return (SUCCESS);
-}
-*/
-// Rafa's version
 static int	init_pixel_buffer(t_data *data)
 {
 	data->win_img.img = mlx_new_image(data->mlx, data->win_width, data->win_height);

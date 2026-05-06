@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 11:12:47 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/05 11:22:50 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/06 12:45:23 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,6 @@ int	free_data(t_data *data)
 		free(data->textures);
 		data->textures = NULL;
 	}
-
-	// Rafa's version:
-	// if (data->win_img.img)
-	// 	mlx_destroy_image(data->mlx, data->win_img.img); // por alguna razon da segfault.
-
 	free_texinfo(&data->texinfo);
 	free_map(data);
 	return (1);

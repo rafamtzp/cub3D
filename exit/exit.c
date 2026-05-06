@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 11:04:36 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/18 20:32:10 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/06 12:44:22 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	clean_and_exit(t_data *data, int code)
 		exit(code);
 	if (data->mlx && data->win)
 		mlx_destroy_window(data->mlx, data->win);
+	if (data->mlx && data->win_img.img)
+		mlx_destroy_image(data->mlx, data->win_img.img);
 	if (data->mlx)
 	{
 		mlx_destroy_display(data->mlx);

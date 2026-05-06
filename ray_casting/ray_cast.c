@@ -72,8 +72,8 @@ static void	copy_pixel_column(t_img *img, t_data *data, t_ray *ray, int x)
 			tex.y = 0;
 		tex.position += tex.step;
 		color = data->textures[textype][TEX_SIZE * tex.y + tex.x];
-		// if (ray->side == 1)
-		// 	color = (color << 1) & 8355711;
+		if (ray->side == 1)
+			color = (color >> 1) & 8355711;
 		img->buf[y * img->size_line/4 + x] = color;
 		y++;
 	}

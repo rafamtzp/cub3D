@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:35:57 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/05 18:16:04 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/06 12:28:37 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	move_position(t_data *data, t_player *player)
 		data->map[(int)(player->pos_y)][(int)(new_x - 0.1)] != '1')
 		player->pos_x = new_x;
 	if (data->map[(int)(new_y + 0.1)][(int)(player->pos_x)] != '1' &&
-	data->map[(int)(new_y - 0.1)][(int)(player->pos_x)] != '1')
+		data->map[(int)(new_y - 0.1)][(int)(player->pos_x)] != '1')
 		player->pos_y = new_y;
 }
 
