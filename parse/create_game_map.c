@@ -101,7 +101,7 @@ int	create_map(t_data *data, char **file, int i)
 	data->mapinfo.height = count_map_lines(file, i);
 	data->mapinfo.width = get_max_width(file, i, data->mapinfo.height);
 	data->mapinfo.index_end_of_map = i + data->mapinfo.height;
-	data->map = malloc(sizeof(char *) * (data->mapinfo.height + 1));
+	data->map = ft_calloc(data->mapinfo.height + 1, sizeof(char *));
 	if (!data->map)
 		return (err_msg(NULL, "Malloc map failed", FAILURE));
 	if (fill_map_array(data, file, i) == FAILURE)

@@ -118,6 +118,8 @@ int	process_file_data(t_data *data, char **map)
 
 	i = 0;
 	status = CONTINUE;
+	if (!map)
+		return (FAILURE);
 	while (map[i])
 	{
 		status = process_line(data, map[i]);

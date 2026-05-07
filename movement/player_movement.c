@@ -13,6 +13,22 @@
 
 #include "../cub3d.h"
 
+static int	is_valid_pos(t_data *data, double x, double y)
+{
+	double	margin;
+
+	margin = 0.2;
+	if (data->map[(int)(y - margin)][(int)(x - margin)] == '1')
+		return (0);
+	if (data->map[(int)(y - margin)][(int)(x + margin)] == '1')
+		return (0);
+	if (data->map[(int)(y + margin)][(int)(x - margin)] == '1')
+		return (0);
+	if (data->map[(int)(y + margin)][(int)(x + margin)] == '1')
+		return (0);
+	return (1);
+}
+
 /* Update movement position and check wall colision */
 static void	move_position(t_data *data, t_player *player)
 {
@@ -20,7 +36,7 @@ static void	move_position(t_data *data, t_player *player)
 	double	new_y;
 	double	speed;
 
-	speed = 0.01;
+	speed = 0.005;
 	new_x = player->pos_x;
 	new_y = player->pos_y;
 	if (player->move_y != 0)
@@ -33,11 +49,9 @@ static void	move_position(t_data *data, t_player *player)
 		new_x += player->dir_y * player->move_x * speed;
 		new_y += -1 * player->dir_x * player->move_x * speed;
 	}
-	if (data->map[(int)(player->pos_y)][(int)(new_x + 0.1)] != '1' &&
-		data->map[(int)(player->pos_y)][(int)(new_x - 0.1)] != '1')
+	if (is_valid_pos(data, new_x, player->pos_y))
 		player->pos_x = new_x;
-	if (data->map[(int)(new_y + 0.1)][(int)(player->pos_x)] != '1' &&
-		data->map[(int)(new_y - 0.1)][(int)(player->pos_x)] != '1')
+	if (is_valid_pos(data, player->pos_x, new_y))
 		player->pos_y = new_y;
 }
 
@@ -45,7 +59,7 @@ static void	rotate_player(t_player *player)
 {
 	double rotspeed;
 	double old_dir_x;
-	
+
 	if (player->rotate != 0)
 	{
 		rotspeed = 0.01 * player->rotate;

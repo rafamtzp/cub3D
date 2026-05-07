@@ -31,6 +31,8 @@ static int	*get_texture_pixels(void *img)
 static int	init_pixel_buffer(t_data *data)
 {
 	data->win_img.img = mlx_new_image(data->mlx, data->win_width, data->win_height);
+	if (!data->win_img.img)
+		return (FAILURE);
 	data->win_img.buf = (uint32_t *)mlx_get_data_addr(data->win_img.img, &data->win_img.pixel_bits, &data->win_img.size_line, &data->win_img.endian);
 	if (!data->win_img.buf)
 		return (FAILURE);
