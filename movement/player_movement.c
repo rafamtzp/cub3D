@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:35:57 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/06 12:28:37 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:10:04 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 /* Check if the position is a wall */
 static int	is_valid_pos(t_data *data, double x, double y)
 {
-	double	margin;
+	double	radius;
 
-	margin = 0.2;
-	if (data->map[(int)(y - margin)][(int)(x - margin)] == '1')
+	radius = 0.2;
+	if (data->map[(int)(y - radius)][(int)(x - radius)] == '1')
 		return (0);
-	if (data->map[(int)(y - margin)][(int)(x + margin)] == '1')
+	if (data->map[(int)(y - radius)][(int)(x + radius)] == '1')
 		return (0);
-	if (data->map[(int)(y + margin)][(int)(x - margin)] == '1')
+	if (data->map[(int)(y + radius)][(int)(x - radius)] == '1')
 		return (0);
-	if (data->map[(int)(y + margin)][(int)(x + margin)] == '1')
+	if (data->map[(int)(y + radius)][(int)(x + radius)] == '1')
 		return (0);
 	return (1);
 }
@@ -37,7 +37,7 @@ static void	move_position(t_data *data, t_player *player)
 	double	new_y;
 	double	speed;
 
-	speed = 0.01;
+	speed = 0.03;
 	new_x = player->pos_x;
 	new_y = player->pos_y;
 	if (player->move_y != 0)
@@ -63,7 +63,7 @@ static void	rotate_player(t_player *player)
 
 	if (player->rotate != 0)
 	{
-		rotspeed = 0.01 * player->rotate;
+		rotspeed = 0.05 * player->rotate;
 		old_dir_x = player->dir_x;
 		player->dir_x = player->dir_x * cos(rotspeed) - player->dir_y * sin(rotspeed);
 		player->dir_y = old_dir_x * sin(rotspeed) + player->dir_y * cos(rotspeed);  

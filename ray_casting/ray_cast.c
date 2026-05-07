@@ -72,19 +72,17 @@ static void	copy_pixel_column(t_img *img, t_data *data, t_ray *ray, int x)
 			tex.y = 0;
 		tex.position += tex.step;
 		color = data->textures[textype][TEX_SIZE * tex.y + tex.x];
-		if (ray->side == 1)
+		if (ray->side == 0)
 			color = (color >> 1) & 8355711;
 		img->buf[y * img->size_line/4 + x] = color;
 		y++;
 	}
-	//printf("PASSED TEXTURE LOOP\n");
 	//draw floor
 	while (y < data->win_height)
 	{
 		img->buf[y * img->size_line/4 + x] = (uint32_t)data->texinfo.floor;
 		y++;
 	}
-	//printf("PASSED FLOOR LOOP\n");
 }
 
 void	ray_cast(t_data *data, t_player *player, t_ray *ray)
