@@ -13,6 +13,7 @@
 
 #include "../cub3d.h"
 
+/* Check if the position is a wall */
 static int	is_valid_pos(t_data *data, double x, double y)
 {
 	double	margin;
@@ -36,7 +37,7 @@ static void	move_position(t_data *data, t_player *player)
 	double	new_y;
 	double	speed;
 
-	speed = 0.005;
+	speed = 0.01;
 	new_x = player->pos_x;
 	new_y = player->pos_y;
 	if (player->move_y != 0)

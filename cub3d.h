@@ -32,8 +32,8 @@
 
 /***************************** MACROS *****************************/
 
-# define WIN_HEIGHT 480
-# define WIN_WIDTH 640
+# define WIN_HEIGHT 900
+# define WIN_WIDTH 1600
 
 # define TEX_SIZE 64
 
