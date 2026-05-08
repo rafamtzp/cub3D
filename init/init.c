@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/04 16:52:46 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/08 13:44:29 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ void	init_data(t_data *data)
 	data->map = NULL;
 	init_mapinfo(&data->mapinfo);
 	init_img_clean(&data->minimap);
-	//data->texture_pixels = NULL; // won't be using it
+	data->minimap_on = 0;
 	data->textures = NULL;
 }

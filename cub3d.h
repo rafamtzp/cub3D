@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/04 16:54:29 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/08 14:13:36 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,7 @@ typedef struct s_data
 	int			**textures;
 	t_texinfo	texinfo;
 	t_img		minimap;
+	int			minimap_on;
 	t_keys		keys;
 }	t_data;
 
@@ -216,5 +217,9 @@ void	ray_cast(t_data *data, t_player *player, t_ray *ray);
 double	dda_algo(t_data *data, t_ray *ray);
 void	set_up_vectors(t_data *data, t_player *player, t_ray *ray, int x);
 void	init_sidedists_and_steps(t_ray *ray, t_player *player);
+
+/* minimap (bonus) */
+int		minimap_init(t_data *data);
+void	draw_minimap(t_data *data, t_img *minimap, t_player *player, char **map);
 
 #endif

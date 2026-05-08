@@ -102,4 +102,5 @@ void	ray_cast(t_data *data, t_player *player, t_ray *ray)
 		x++;
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->win_img.img, 0, 0);
+	draw_minimap(data, &data->minimap, &data->player, data->map);
 }

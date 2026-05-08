@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:35:57 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/07 16:10:04 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:49:47 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	rotate_player(t_player *player)
 
 	if (player->rotate != 0)
 	{
-		rotspeed = 0.05 * player->rotate;
+		rotspeed = 0.03 * player->rotate;
 		old_dir_x = player->dir_x;
 		player->dir_x = player->dir_x * cos(rotspeed) - player->dir_y * sin(rotspeed);
 		player->dir_y = old_dir_x * sin(rotspeed) + player->dir_y * cos(rotspeed);  

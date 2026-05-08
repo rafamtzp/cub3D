@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:24:21 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/05 11:07:42 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/08 14:10:08 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 	if (parse_args(&data, argv) != 0)
 		return (1);
 	init_mlx(&data);
-	if (init_texture(&data) == FAILURE)
+	if (init_texture(&data) == FAILURE || minimap_init(&data) == FAILURE)
 		clean_and_exit(&data, FAILURE);
 	print_controls();
 	wait_for_input(&data);

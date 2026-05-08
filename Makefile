@@ -35,7 +35,8 @@ SRCS = main.c \
 	ray_casting/dda_algo.c \
 	ray_casting/ray_cast_init.c \
 	ray_casting/ray_cast.c \
-	init/init_player_dir.c
+	ray_casting/minimap.c \
+	init/init_player_dir.c \
 
 # Object files
 OBJS = $(SRCS:.c=.o)
