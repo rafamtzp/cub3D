@@ -6,12 +6,13 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 13:43:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 13:45:58 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 14:51:39 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
+/* Set bonus bool to false */
 void	set_bonus(bool *bonus)
 {
 	*bonus = true;

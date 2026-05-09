@@ -39,7 +39,7 @@ SRCS = main.c \
 	init/init_player_dir.c \
 
 # Files without bonus
-SRC_NB = 	utils/utils.c
+SRC_NB =	utils/utils.c
 
 # Bonus source files
 SRCS_B = bonus/utils_bonus.c
@@ -62,7 +62,7 @@ $(MINILIBX):
 $(LIBFT):
 	@make -C $(LIBFT_DIR)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(OBJS_NB)
 	@$(CC) $(CFLAGS) $(OBJS) $(OBJS_NB) $(LIBS) -o $(NAME)
 
 %.o: %.c

@@ -6,13 +6,13 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:24:21 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 13:51:31 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 14:24:23 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	print_controls(void)
+static void	print_controls(t_data *data)
 {
 	printf(CYAN "\n");
 	printf("░█▀▀░█░█░█▀▄░▀▀█░█▀▄░░░█▀▀░█▀█░█▀█░▀█▀░█▀▄░█▀█░█░░░█▀▀\n");
@@ -25,6 +25,10 @@ static void	print_controls(void)
 	printf(CYAN "\tD" RESET ": strafe right\n");
 	printf(CYAN "\t← " RESET ": rotate left\t");
 	printf(CYAN "\t→ " RESET ": rotate right\n");
+	if (data->bonus)
+	{
+		printf(CYAN "\tM " RESET ": Show/Hide map\n");
+	}
 	printf("\n");
 }
 
@@ -71,7 +75,7 @@ int	main(int argc, char **argv)
 		if (minimap_init(&data) == FAILURE)
 			clean_and_exit(&data, FAILURE);
 	}
-	print_controls();
+	print_controls(&data);
 	wait_for_input(&data);
 	mlx_loop_hook(data.mlx, render_frame, &data);
 	mlx_loop(data.mlx);
