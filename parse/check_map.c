@@ -6,14 +6,14 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 09:30:58 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/21 14:27:18 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 16:53:00 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
 /* Check if is a transitable character or player next to a void space */
-static int	check_adjacent_spaces(t_data *data, char **map, int y, int x)
+int	check_adjacent_spaces(t_data *data, char **map, int y, int x)
 {
 	if (y == 0 || y == data->mapinfo.height - 1
 		|| x == 0 || x == data->mapinfo.width - 1)
@@ -27,17 +27,26 @@ static int	check_adjacent_spaces(t_data *data, char **map, int y, int x)
 /* Check tif the character is valid, floor or its closed */
 static int	check_cell(t_data *data, char **map, int y, int x)
 {
-	if (ft_strchr("0NSEW", map[y][x]))
+	if (data->bonus)
 	{
-		if (check_adjacent_spaces(data, map, y, x) == FAILURE)
-		{
-			err_msg(NULL, "Map is open/not surrounded by walls", FAILURE);
+		if(check_cell_bonus(data, map, y, x) == FAILURE)
 			return (FAILURE);
-		}
+		return (SUCCESS);
 	}
-	else if (!ft_strchr(" 01NSEW", map[y][x]))
-		return (err_msg(NULL, "Invalid character in map", FAILURE));
-	return (SUCCESS);
+	else
+	{
+		if (ft_strchr("0NSEW", map[y][x]))
+		{
+			if (check_adjacent_spaces(data, map, y, x) == FAILURE)
+			{
+				err_msg(NULL, "Map is open/not surrounded by walls", FAILURE);
+				return (FAILURE);
+			}
+		}
+		else if (!ft_strchr(" 01NSEW", map[y][x]))
+			return (err_msg(NULL, "Invalid character in map", FAILURE));
+		return (SUCCESS);
+	}
 }
 
 /* Check characters, walls, and player info */

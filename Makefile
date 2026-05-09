@@ -31,6 +31,7 @@ SRCS = main.c \
 	parse/parse_data.c \
 	parse/process_file_data.c \
 	parse/fill_door_textures.c \
+	parse/parse_utils.c \
 	movement/input_handler.c \
 	movement/player_movement.c\
 	ray_casting/dda_algo.c \
@@ -38,7 +39,6 @@ SRCS = main.c \
 	ray_casting/ray_cast.c \
 	ray_casting/minimap.c \
 	init/init_player_dir.c \
-
 
 # Files without bonus
 SRC_NB =	utils/utils.c
@@ -68,7 +68,7 @@ $(NAME): $(OBJS) $(OBJS_NB)
 	@$(CC) $(CFLAGS) $(OBJS) $(OBJS_NB) $(LIBS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 bonus: $(OBJS) $(OBJS_B)
 	@make -C $(MINILIBX_DIR)

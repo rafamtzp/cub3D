@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 15:59:37 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 17:04:05 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 
 # define WIN_HEIGHT 900
 # define WIN_WIDTH 1600
-
 # define TEX_SIZE 64
 
 # ifndef O_DIRECTORY
@@ -181,6 +180,7 @@ typedef struct s_data
 	int			minimap_on;
 	t_keys		keys;
 	bool		bonus;
+	bool		d_check;
 }	t_data;
 
 
@@ -212,6 +212,7 @@ int	create_map(t_data *data, char **file, int i);
 int	validate_map(t_data *data, char **map_tab);
 int	validate_textures(t_data *data, t_texinfo *textures);
 char	*get_texture_path(char *line, int j);
+int	check_adjacent_spaces(t_data *data, char **map, int y, int x);
 
 /* movement */
 void	wait_for_input(t_data *data);
@@ -228,6 +229,8 @@ void	set_bonus(bool *bonus);
 
 /* Door bonnus */
 int	fill_door_texture(t_texinfo *texture, char *line, int j);
+int	check_cell_bonus(t_data *data, char **map, int y, int x);
+int	texture_door_filled(t_data *data);
 
 /* minimap (bonus) */
 int		minimap_init(t_data *data);

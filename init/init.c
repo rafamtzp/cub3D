@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 15:27:59 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 17:04:05 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,5 @@ void	init_data(t_data *data)
 		data->minimap_on = 0;
 	}
 	data->textures = NULL;
+	data->d_check = false;
 }
