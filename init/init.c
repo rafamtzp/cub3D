@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/08 13:44:29 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/09 13:24:24 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,5 @@ void	init_data(t_data *data)
 	init_img_clean(&data->minimap);
 	data->minimap_on = 0;
 	data->textures = NULL;
+	set_bonus(&data->bonus);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:24:21 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/08 14:10:08 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/09 13:51:31 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,11 @@ int	main(int argc, char **argv)
 	init_mlx(&data);
 	if (init_texture(&data) == FAILURE || minimap_init(&data) == FAILURE)
 		clean_and_exit(&data, FAILURE);
+	if (data.bonus)
+	{
+		if (minimap_init(&data) == FAILURE)
+			clean_and_exit(&data, FAILURE);
+	}
 	print_controls();
 	wait_for_input(&data);
 	mlx_loop_hook(data.mlx, render_frame, &data);

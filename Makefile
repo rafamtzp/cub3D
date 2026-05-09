@@ -38,8 +38,20 @@ SRCS = main.c \
 	ray_casting/minimap.c \
 	init/init_player_dir.c \
 
+# Files without bonus
+SRC_NB = 	utils/utils.c
+
+# Bonus source files
+SRCS_B = bonus/utils_bonus.c
+
 # Object files
 OBJS = $(SRCS:.c=.o)
+
+# Objet without bonus
+OBJS_NB = $(SRC_NB:.c=.o)
+
+# Bonus object files
+OBJS_B = $(SRCS_B:.c=.o)
 
 # Rules
 all: $(MINILIBX) $(LIBFT) $(NAME)
@@ -51,19 +63,26 @@ $(LIBFT):
 	@make -C $(LIBFT_DIR)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(OBJS_NB) $(LIBS) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
+bonus: $(OBJS) $(OBJS_B)
+	@$(CC) $(CFLAGS) $(OBJS) $(OBJS_B) $(LIBS) -o $(NAME)
+
 clean:
 	@make clean -C $(MINILIBX_DIR)
 	@make clean -C $(LIBFT_DIR)
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
+	@rm -f $(OBJS_NB)
+	@rm -f $(OBJS_B)
 
 fclean: clean
 	@make fclean -C $(LIBFT_DIR)
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@rm -f $(OBJS_NB)
+	@rm -f $(OBJS_B)
 
 re: fclean all
 
