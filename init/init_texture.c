@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 10:27:04 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/06 13:25:24 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/09 17:26:05 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,12 @@ int	init_texture(t_data *data)
 	while (++i < 4)
 	{
 		if (load_image(data, i, paths[i]) == FAILURE)
+			return (FAILURE);
+	}
+	if (data->bonus && data->d_check)
+	{
+		i++;
+		if (load_image(data, i, data->texinfo.door) == FAILURE)
 			return (FAILURE);
 	}
 	return (SUCCESS);

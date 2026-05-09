@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 12:55:54 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/18 21:08:33 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 17:26:20 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,10 @@ int	validate_textures(t_data *data, t_texinfo *textures)
 		return (FAILURE);
 	if (textures->floor == -1 || textures->ceiling == -1)
 		return (err_msg(NULL, "Missing floor or ceiling colors", FAILURE));
+	if (data->bonus && data->d_check)
+	{
+		if (check_file(textures->door, false) == FAILURE)
+			return (err_msg(NULL, "Missing door textures", FAILURE));
+	}
 	return (SUCCESS);
 }
