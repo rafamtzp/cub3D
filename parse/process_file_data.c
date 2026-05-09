@@ -6,14 +6,14 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 18:20:52 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/21 14:06:06 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 16:20:02 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
 /* Get the leng of the path and return the path */
-static char	*get_texture_path(char *line, int j)
+char	*get_texture_path(char *line, int j)
 {
 	int		len;
 	char	*path;
@@ -92,10 +92,10 @@ static int	process_line(t_data *data, char *line)
 	{
 		return (fill_color_textures(&data->texinfo, line, j));
 	}
+	else if (data->bonus && ft_strncmp(&line[j], "DOOR ", 5) == 0)
+		return (fill_door_texture(&data->texinfo, line, j));
 	else if (line[j] == '1' || line[j] == '0')
-	{
 		return (BREAK);
-	}
 	return (err_msg(NULL, "Invalid configuration line", 1));
 }
 

@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 13:23:23 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 15:59:37 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct s_textinfo
 	char			*south;
 	char			*west;
 	char			*east;
+	char			*door;
 	int				floor;
 	int				ceiling;
 	unsigned long	hex_floor;
@@ -210,6 +211,7 @@ int	fill_color_textures(t_texinfo *textures, char *line, int j);
 int	create_map(t_data *data, char **file, int i);
 int	validate_map(t_data *data, char **map_tab);
 int	validate_textures(t_data *data, t_texinfo *textures);
+char	*get_texture_path(char *line, int j);
 
 /* movement */
 void	wait_for_input(t_data *data);
@@ -223,6 +225,9 @@ void	init_sidedists_and_steps(t_ray *ray, t_player *player);
 
 /* Utils */
 void	set_bonus(bool *bonus);
+
+/* Door bonnus */
+int	fill_door_texture(t_texinfo *texture, char *line, int j);
 
 /* minimap (bonus) */
 int		minimap_init(t_data *data);

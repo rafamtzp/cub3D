@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 13:24:24 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 15:27:59 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ static void	init_keys(t_keys *keys)
 /* Init base data */
 void	init_data(t_data *data)
 {
+	set_bonus(&data->bonus);
 	data->mlx = NULL;
 	data->win = NULL;
 	data->win_height = WIN_HEIGHT;
@@ -93,8 +94,11 @@ void	init_data(t_data *data)
 	init_texinfo(&data->texinfo);
 	data->map = NULL;
 	init_mapinfo(&data->mapinfo);
-	init_img_clean(&data->minimap);
-	data->minimap_on = 0;
+	if (data->bonus)
+	{
+		init_img_clean(&data->minimap);
+		init_img_clean(&data->door);
+		data->minimap_on = 0;
+	}
 	data->textures = NULL;
-	set_bonus(&data->bonus);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 17:37:28 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/08 13:46:57 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/09 15:28:23 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	key_press_handler(int key, t_data *data)
 		data->keys.s = 1;
 	if (key == XK_d)
 		data->keys.d = 1;
-	if (key == XK_m)
+	if (key == XK_m && data->bonus)
 		data->minimap_on = (data->minimap_on + 1) % 2;
 	update_axis_values(data);
 	return (0);
