@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 17:04:05 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 18:29:37 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ void	init_data(t_data *data)
 	if (data->bonus)
 	{
 		init_img_clean(&data->minimap);
-		init_img_clean(&data->door);
 		data->minimap_on = 0;
 	}
 	data->textures = NULL;

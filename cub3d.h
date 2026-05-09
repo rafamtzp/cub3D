@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 17:04:05 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/09 18:29:14 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,6 @@ typedef struct s_data
 	t_img		win_img;
 	int			**textures;
 	t_texinfo	texinfo;
-	t_img		door;
 	t_img		minimap;
 	int			minimap_on;
 	t_keys		keys;
