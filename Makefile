@@ -69,6 +69,8 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 bonus: $(OBJS) $(OBJS_B)
+	@make -C $(MINILIBX_DIR)
+	@make -C $(LIBFT_DIR)
 	@$(CC) $(CFLAGS) $(OBJS) $(OBJS_B) $(LIBS) -o $(NAME)
 
 clean:
