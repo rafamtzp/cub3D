@@ -37,6 +37,8 @@ static void	free_texinfo(t_texinfo *textures)
 		free(textures->west);
 	if (textures->east)
 		free(textures->east);
+	if (textures->door)
+		free(textures->door);
 }
 
 /* Clean the texture matrix and pixel buffer */
@@ -47,7 +49,7 @@ int	free_data(t_data *data)
 	if (data->textures)
 	{
 		i = 0;
-		while (i < 4)
+		while (i < 5)
 		{
 			if (data->textures[i])
 				free(data->textures[i]);

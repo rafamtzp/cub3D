@@ -89,8 +89,7 @@ int	init_texture(t_data *data)
 	}
 	if (data->bonus && data->d_check)
 	{
-		i++;
-		if (load_image(data, i, data->texinfo.door) == FAILURE)
+		if (load_image(data, 4, data->texinfo.door) == FAILURE)
 			return (FAILURE);
 	}
 	return (SUCCESS);
@@ -103,6 +102,7 @@ void	init_texinfo(t_texinfo *texture)
 	texture->south = NULL;
 	texture->west = NULL;
 	texture->east = NULL;
+	texture->door = NULL;
 	texture->floor = -1;
 	texture->ceiling = -1;
 	texture->hex_floor = 0x0;
