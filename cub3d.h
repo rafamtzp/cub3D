@@ -6,7 +6,7 @@
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 18:29:14 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/10 15:54:59 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,9 +227,10 @@ void	init_sidedists_and_steps(t_ray *ray, t_player *player);
 void	set_bonus(bool *bonus);
 
 /* Door bonnus */
-int	fill_door_texture(t_texinfo *texture, char *line, int j);
-int	check_cell_bonus(t_data *data, char **map, int y, int x);
-int	texture_door_filled(t_data *data);
+int		fill_door_texture(t_texinfo *texture, char *line, int j);
+int		check_cell_bonus(t_data *data, char **map, int y, int x);
+int		texture_door_filled(t_data *data);
+void	toggle_door(t_data *data);
 
 /* minimap (bonus) */
 int		minimap_init(t_data *data);

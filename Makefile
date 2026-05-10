@@ -38,6 +38,7 @@ SRCS = main.c \
 	ray_casting/ray_cast.c \
 	ray_casting/minimap.c \
 	init/init_player_dir.c \
+	utils/toggle_door.c
 
 # Files without bonus
 SRC_NB = utils/utils.c \
