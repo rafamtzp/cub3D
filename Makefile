@@ -33,6 +33,7 @@ SRCS = main.c \
 	parse/fill_door_textures.c \
 	parse/parse_utils.c \
 	movement/input_handler.c \
+	movement/player_movement.c \
 	ray_casting/dda_algo.c \
 	ray_casting/ray_cast_init.c \
 	ray_casting/ray_cast.c \
@@ -42,11 +43,9 @@ SRCS = main.c \
 
 # Files without bonus
 SRC_NB = utils/utils.c \
-	movement/player_movement.c
 
 # Bonus source files
 SRCS_B = bonus/utils_bonus.c \
-	bonus/player_movement_bonus.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)

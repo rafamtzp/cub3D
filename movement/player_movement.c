@@ -19,13 +19,17 @@ static int	is_valid_pos(t_data *data, double x, double y)
 	double	radius;
 
 	radius = 0.2;
-	if (data->map[(int)(y - radius)][(int)(x - radius)] == '1')
+	if (data->map[(int)(y - radius)][(int)(x - radius)] == '1' ||
+		data->map[(int)(y - radius)][(int)(x - radius)] == 'D')
 		return (0);
-	if (data->map[(int)(y - radius)][(int)(x + radius)] == '1')
+	if (data->map[(int)(y - radius)][(int)(x + radius)] == '1' ||
+		data->map[(int)(y - radius)][(int)(x + radius)] == 'D')
 		return (0);
-	if (data->map[(int)(y + radius)][(int)(x - radius)] == '1')
+	if (data->map[(int)(y + radius)][(int)(x - radius)] == '1' ||
+		data->map[(int)(y + radius)][(int)(x - radius)] == 'D')
 		return (0);
-	if (data->map[(int)(y + radius)][(int)(x + radius)] == '1')
+	if (data->map[(int)(y + radius)][(int)(x + radius)] == '1' ||
+		data->map[(int)(y + radius)][(int)(x + radius)] == 'D' )
 		return (0);
 	return (1);
 }
