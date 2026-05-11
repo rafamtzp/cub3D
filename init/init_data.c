@@ -25,11 +25,8 @@ void	init_data(t_data *data)
 	init_texinfo(&data->texinfo);
 	data->map = NULL;
 	init_mapinfo(&data->mapinfo);
-	if (data->bonus)
-	{
-		init_img_clean(&data->minimap);
-		data->minimap_on = 0;
-	}
+	init_img_clean(&data->minimap);
+	data->minimap_on = 0;
 	data->textures = NULL;
 	data->d_check = false;
 }
