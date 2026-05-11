@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 11:04:36 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/08 14:09:36 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:57:50 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	clean_and_exit(t_data *data, int code)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx && data->win_img.img)
 		mlx_destroy_image(data->mlx, data->win_img.img);
-	if (data->mlx && data->minimap.img)
+	if (data->bonus && data->mlx && data->minimap.img)
 		mlx_destroy_image(data->mlx, data->minimap.img);
 	if (data->mlx)
 	{

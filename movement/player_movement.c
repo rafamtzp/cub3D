@@ -6,10 +6,9 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:35:57 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/11 17:21:21 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:06:08 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../cub3d.h"
 
@@ -19,17 +18,17 @@ static int	is_valid_pos(t_data *data, double x, double y)
 	double	radius;
 
 	radius = 0.2;
-	if (data->map[(int)(y - radius)][(int)(x - radius)] == '1' ||
-		data->map[(int)(y - radius)][(int)(x - radius)] == 'D')
+	if (data->map[(int)(y - radius)][(int)(x - radius)] == '1'
+		|| data->map[(int)(y - radius)][(int)(x - radius)] == 'D')
 		return (0);
-	if (data->map[(int)(y - radius)][(int)(x + radius)] == '1' ||
-		data->map[(int)(y - radius)][(int)(x + radius)] == 'D')
+	if (data->map[(int)(y - radius)][(int)(x + radius)] == '1'
+		|| data->map[(int)(y - radius)][(int)(x + radius)] == 'D')
 		return (0);
-	if (data->map[(int)(y + radius)][(int)(x - radius)] == '1' ||
-		data->map[(int)(y + radius)][(int)(x - radius)] == 'D')
+	if (data->map[(int)(y + radius)][(int)(x - radius)] == '1'
+		|| data->map[(int)(y + radius)][(int)(x - radius)] == 'D')
 		return (0);
-	if (data->map[(int)(y + radius)][(int)(x + radius)] == '1' ||
-		data->map[(int)(y + radius)][(int)(x + radius)] == 'D' )
+	if (data->map[(int)(y + radius)][(int)(x + radius)] == '1'
+		|| data->map[(int)(y + radius)][(int)(x + radius)] == 'D')
 		return (0);
 	return (1);
 }
@@ -62,15 +61,17 @@ static void	move_position(t_data *data, t_player *player)
 
 static void	rotate_player(t_player *player)
 {
-	double rotspeed;
-	double old_dir_x;
+	double	rotspeed;
+	double	old_dir_x;
 
 	if (player->rotate != 0)
 	{
 		rotspeed = 0.03 * player->rotate;
 		old_dir_x = player->dir_x;
-		player->dir_x = player->dir_x * cos(rotspeed) - player->dir_y * sin(rotspeed);
-		player->dir_y = old_dir_x * sin(rotspeed) + player->dir_y * cos(rotspeed);  
+		player->dir_x = player->dir_x * cos(rotspeed) - player->dir_y
+			* sin(rotspeed);
+		player->dir_y = old_dir_x * sin(rotspeed) + player->dir_y
+			* cos(rotspeed);
 	}
 }
 
@@ -78,7 +79,7 @@ static void	rotate_player(t_player *player)
 void	update_player(t_data *data)
 {
 	if (data->player.rotate != 0)
-	 	rotate_player(&data->player);
+		rotate_player(&data->player);
 	if (data->player.move_x != 0 || data->player.move_y != 0)
 		move_position(data, &data->player);
 }

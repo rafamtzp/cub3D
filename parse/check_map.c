@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 09:30:58 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 16:53:00 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:05:03 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 /* Check if is a transitable character or player next to a void space */
 int	check_adjacent_spaces(t_data *data, char **map, int y, int x)
 {
-	if (y == 0 || y == data->mapinfo.height - 1
-		|| x == 0 || x == data->mapinfo.width - 1)
+	if (y == 0 || y == data->mapinfo.height - 1 || x == 0
+		|| x == data->mapinfo.width - 1)
 		return (FAILURE);
-	if (map[y - 1][x] == ' ' || map[y + 1][x] == ' '
-		|| map[y][x - 1] == ' ' || map[y][x + 1] == ' ')
+	if (map[y - 1][x] == ' ' || map[y + 1][x] == ' ' || map[y][x - 1] == ' '
+		|| map[y][x + 1] == ' ')
 		return (FAILURE);
 	return (SUCCESS);
 }
@@ -29,7 +29,7 @@ static int	check_cell(t_data *data, char **map, int y, int x)
 {
 	if (data->bonus)
 	{
-		if(check_cell_bonus(data, map, y, x) == FAILURE)
+		if (check_cell_bonus(data, map, y, x) == FAILURE)
 			return (FAILURE);
 		return (SUCCESS);
 	}

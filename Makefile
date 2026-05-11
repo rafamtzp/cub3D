@@ -1,7 +1,7 @@
 NAME = cub3D
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -std=gnu99
+CFLAGS = -Wall -Werror -Wextra
 
 # Directories
 MINILIBX_DIR = minilibx-linux
@@ -20,9 +20,10 @@ SRCS = main.c \
 	error/error.c \
 	exit/exit.c \
 	exit/free_data.c \
-	init/init.c \
+	init/init_data.c \
 	init/init_texture.c \
 	init/init_mlx.c \
+	init/init_structs.c \
 	parse/check_args.c \
 	parse/check_map.c \
 	parse/check_textures.c \
@@ -37,6 +38,7 @@ SRCS = main.c \
 	ray_casting/dda_algo.c \
 	ray_casting/ray_cast_init.c \
 	ray_casting/ray_cast.c \
+	ray_casting/ray_cast_calc.c \
 	ray_casting/minimap.c \
 	init/init_player_dir.c \
 	utils/toggle_door.c

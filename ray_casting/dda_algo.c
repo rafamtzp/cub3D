@@ -1,12 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dda_algo.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/9 16:21:31 by ramarti2          #+#    #+#             */
+/*   Updated: 2026/05/11 18:10:44 by ramarti2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 
-double	dda_algo(t_data *data, t_ray *ray)
+void	dda_algo(t_data *data, t_ray *ray)
 {
-	int is_hit;
-	double perp_dist;
-
-	is_hit = 0;
-	while (is_hit == 0)
+	ray->is_hit = 0;
+	while (ray->is_hit == 0)
 	{
 		if (ray->sidedist_x < ray->sidedist_y)
 		{
@@ -22,13 +31,12 @@ double	dda_algo(t_data *data, t_ray *ray)
 		}
 		if ((data->bonus && data->map[ray->map_y][ray->map_x] == 'D') ||
 		(data->map[ray->map_y][ray->map_x] == '1'))
-			is_hit = 1;
+			ray->is_hit = 1;
 	}
 	if (ray->side == 0)
-		perp_dist = ray->sidedist_x - ray->deltadist_x;
+		ray->perp_dist = ray->sidedist_x - ray->deltadist_x;
 	else
-		perp_dist = ray->sidedist_y - ray->deltadist_y;
-	if (perp_dist < 0.0001)
-		perp_dist = 0.0001;
-	return (perp_dist);
+		ray->perp_dist = ray->sidedist_y - ray->deltadist_y;
+	if (ray->perp_dist < 0.0001)
+		ray->perp_dist = 0.0001;
 }

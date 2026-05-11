@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_data.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 10:52:32 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/04/21 12:04:43 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:04:39 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,3 @@ void	parse_data(char *path, t_data *data)
 	fill_table(data);
 	close(data->mapinfo.fd);
 }
-

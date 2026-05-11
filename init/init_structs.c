@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_structs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/11 13:57:52 by ramarti2         ###   ########.fr       */
+/*   Created: 2026/05/11 17:57:57 by ramarti2          #+#    #+#             */
+/*   Updated: 2026/05/11 18:40:39 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	init_ray_clean(t_ray *ray)
 	ray->deltadist_x = 0;
 	ray->deltadist_y = 0;
 	ray->perp_dist = 0;
+	ray->is_hit = 0;
 	ray->wall_x = 0;
 	ray->side = 0;
 	ray->draw_start = 0;
@@ -44,7 +45,7 @@ void	init_ray_clean(t_ray *ray)
 }
 
 /* Inicialize map info */
-static void	init_mapinfo(t_mapinfo *mapinfo)
+void	init_mapinfo(t_mapinfo *mapinfo)
 {
 	mapinfo->fd = 0;
 	mapinfo->line_count = 0;
@@ -56,7 +57,7 @@ static void	init_mapinfo(t_mapinfo *mapinfo)
 }
 
 /* Init player data */
-static void	init_player(t_player *player)
+void	init_player(t_player *player)
 {
 	player->dir = '\0';
 	player->pos_x = 0.0;
@@ -71,7 +72,7 @@ static void	init_player(t_player *player)
 	player->rotate = 0;
 }
 
-static void	init_keys(t_keys *keys)
+void	init_keys(t_keys *keys)
 {
 	keys->w = 0;
 	keys->s = 0;
@@ -79,26 +80,4 @@ static void	init_keys(t_keys *keys)
 	keys->d = 0;
 	keys->left = 0;
 	keys->right = 0;
-}
-
-/* Init base data */
-void	init_data(t_data *data)
-{
-	set_bonus(&data->bonus);
-	data->mlx = NULL;
-	data->win = NULL;
-	data->win_height = WIN_HEIGHT;
-	data->win_width = WIN_WIDTH;
-	init_player(&data->player);
-	init_keys(&data->keys);
-	init_texinfo(&data->texinfo);
-	data->map = NULL;
-	init_mapinfo(&data->mapinfo);
-	if (data->bonus)
-	{
-		init_img_clean(&data->minimap);
-		data->minimap_on = 0;
-	}
-	data->textures = NULL;
-	data->d_check = false;
 }
