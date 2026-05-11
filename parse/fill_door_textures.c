@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_door_textures.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 15:21:19 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 15:59:40 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:05:31 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int	fill_door_texture(t_texinfo *texture, char *line, int j)
 			return (err_msg("Door", "Duplicate texture", 1));
 		texture->door = get_texture_path(line, j + 4);
 	}
-
 	return (0);
 }

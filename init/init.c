@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 20:09:45 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 18:29:37 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/11 13:57:52 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	init_ray_clean(t_ray *ray)
 	ray->sidedist_y = 0;
 	ray->deltadist_x = 0;
 	ray->deltadist_y = 0;
-	ray->wall_dist = 0;
+	ray->perp_dist = 0;
 	ray->wall_x = 0;
 	ray->side = 0;
 	ray->draw_start = 0;

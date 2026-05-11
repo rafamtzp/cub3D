@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/10 15:54:59 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:02:19 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ enum e_texture_index
 	NORTH = 0,
 	SOUTH = 1,
 	EAST = 2,
-	WEST = 3
+	WEST = 3,
+	DOOR = 4
 };
 
 enum e_output
@@ -127,7 +128,7 @@ typedef struct s_ray
 	double	sidedist_y;
 	double	deltadist_x;
 	double	deltadist_y;
-	double	wall_dist;
+	double	perp_dist;
 	double	wall_x;
 	int		side;
 	int		draw_start;

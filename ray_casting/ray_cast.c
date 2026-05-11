@@ -33,8 +33,15 @@ static void	texture_calculations(t_data *data, t_player *player, t_ray *ray, dou
 	tex->position = (data->draw_start - data->win_height / 2 + data->line_height / 2) * tex->step;
 }
 
-static int	get_textype(t_ray ray)
+static int	get_textype(t_data *data, t_ray ray, t_player player)
 {
+	int pos_y;
+	int pos_x;
+
+	pos_y = (int)(player.pos_y + ray.dir_y * (ray.perp_dist + 0.01));
+	pos_x = (int)(player.pos_x + ray.dir_x * (ray.perp_dist + 0.01));
+	if (data->bonus && data->map[pos_y][pos_x] == 'D')
+		return (DOOR);
 	if (ray.dir_y > 0 && ray.side == 1)
 		return (SOUTH);
 	if (ray.dir_y < 0 && ray.side == 1)
@@ -54,7 +61,7 @@ static void	copy_pixel_column(t_img *img, t_data *data, t_ray *ray, int x)
 	uint32_t color;
 
 	tex = data->texinfo;
-	textype = get_textype(*ray);
+	textype = get_textype(data, *ray, data->player);
 	y = 0;
 	// draw ceiling
 	while (y < data->draw_start)
@@ -87,7 +94,6 @@ static void	copy_pixel_column(t_img *img, t_data *data, t_ray *ray, int x)
 
 void	ray_cast(t_data *data, t_player *player, t_ray *ray)
 {
-	double perp_dist;
 	int x;
 
 	x = 0;
@@ -95,9 +101,9 @@ void	ray_cast(t_data *data, t_player *player, t_ray *ray)
 	{
 		set_up_vectors(data, player, ray, x);
 		init_sidedists_and_steps(ray, player);
-		perp_dist = dda_algo(data, ray);
-		calc_line_height(data, perp_dist);
-		texture_calculations(data, player, ray, perp_dist);
+		ray->perp_dist = dda_algo(data, ray);
+		calc_line_height(data, ray->perp_dist);
+		texture_calculations(data, player, ray, ray->perp_dist);
 		copy_pixel_column(&data->win_img, data, ray, x);
 		x++;
 	}
