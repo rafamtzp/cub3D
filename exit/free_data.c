@@ -15,30 +15,45 @@
 /* Frees map data and closes the file descriptor */
 static void	free_map(t_data *data)
 {
-	if (data->mapinfo.fd > 0)
+	if (data->mapinfo.fd >= 0)
 	{
 		close(data->mapinfo.fd);
 		data->mapinfo.fd = -1;
 	}
 	if (data->mapinfo.file)
-		ft_free_matrix((void **)data->mapinfo.file);
+		data->mapinfo.file = ft_free_matrix((void **)data->mapinfo.file);
 	if (data->map)
-		ft_free_matrix((void **)data->map);
+		data->map = ft_free_matrix((void **)data->map);
 }
 
 /* Free the texture info */
 static void	free_texinfo(t_texinfo *textures)
 {
 	if (textures->north)
+	{
 		free(textures->north);
+		textures->north = NULL;
+	}
 	if (textures->south)
+	{
 		free(textures->south);
+		textures->south = NULL;
+	}
 	if (textures->west)
+	{
 		free(textures->west);
+		textures->west = NULL;
+	}
 	if (textures->east)
+	{
 		free(textures->east);
+		textures->east = NULL;
+	}
 	if (textures->door)
+	{
 		free(textures->door);
+		textures->door = NULL;
+	}
 }
 
 /* Clean the texture matrix and pixel buffer */

@@ -26,8 +26,8 @@ void	clean_and_exit(t_data *data, int code)
 		mlx_destroy_image(data->mlx, data->minimap.img);
 	if (data->mlx)
 	{
-		mlx_destroy_display(data->mlx);
 		mlx_loop_end(data->mlx);
+		mlx_destroy_display(data->mlx);
 		free(data->mlx);
 	}
 	free_data(data);
