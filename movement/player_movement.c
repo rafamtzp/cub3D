@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:35:57 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/13 16:27:31 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/13 16:30:42 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	update_player(t_data *data)
 	if (data->bonus && data->mouse_locked)
 		process_mouse_rotation(data);
 	if (data->player.rotate != 0)
-		rotate_player(&data->player, data->player.rotate, data->bonus);
+		rotate_player(&data->player, data->player.rotate);
 	if (data->player.move_x != 0 || data->player.move_y != 0)
 		move_position(data, &data->player);
 }
