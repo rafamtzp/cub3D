@@ -27,7 +27,8 @@ static void	print_controls(t_data *data)
 	printf(CYAN "\t→ " RESET ": rotate right\n");
 	if (data->bonus)
 	{
-		printf(CYAN "\tM " RESET ": Show/Hide map\n");
+		printf(CYAN "\tM " RESET ": Show/Hide map");
+		printf(CYAN "\tZ" RESET ": Lock/Unlock Mouse\n");
 	}
 	printf("\n");
 }
@@ -74,6 +75,8 @@ int	main(int argc, char **argv)
 	{
 		if (minimap_init(&data) == FAILURE)
 			clean_and_exit(&data, FAILURE);
+		if (data.mouse_locked)
+			mlx_mouse_hide(data.mlx, data.win);
 	}
 	print_controls(&data);
 	wait_for_input(&data);

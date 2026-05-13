@@ -16,6 +16,7 @@
 void	init_data(t_data *data)
 {
 	set_bonus(&data->bonus);
+	mouse_locked(&data->mouse_locked);
 	data->mlx = NULL;
 	data->win = NULL;
 	data->win_height = WIN_HEIGHT;

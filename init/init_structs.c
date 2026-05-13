@@ -66,10 +66,11 @@ void	init_player(t_player *player)
 	player->dir_y = 0.0;
 	player->plane_x = 0.0;
 	player->plane_y = 0.0;
-	player->has_moved = 0;
 	player->move_x = 0;
 	player->move_y = 0;
 	player->rotate = 0;
+	player->mouse_x = 0.0;
+	player->mouse_y = 0.0;
 }
 
 void	init_keys(t_keys *keys)

@@ -34,7 +34,7 @@
 # define WIN_HEIGHT 900
 # define WIN_WIDTH 1600
 # define TEX_SIZE 64
-
+# define MOUSE_SENS 0.02
 # ifndef O_DIRECTORY
 #  define O_DIRECTORY 00200000
 # endif
@@ -142,10 +142,11 @@ typedef struct s_player
 	double			dir_y;
 	double			plane_x;
 	double			plane_y;
-	int				has_moved;
 	int				move_x;
 	int				move_y;
 	int				rotate;
+	double			mouse_x;
+	double			mouse_y;
 }					t_player;
 
 typedef struct s_keys
@@ -179,6 +180,7 @@ typedef struct s_data
 	t_keys			keys;
 	bool			bonus;
 	bool			d_check;
+	bool			mouse_locked;
 }					t_data;
 
 /***************************** FUNCTIONS *****************************/
@@ -231,6 +233,8 @@ int					get_textype(t_data *data, t_ray ray, t_player player);
 
 /* Utils */
 void				set_bonus(bool *bonus);
+void				mouse_locked(bool *mouse_locked);
+void				mouse_lock_handler(t_data *data);
 
 /* Door bonnus */
 int					fill_door_texture(t_texinfo *texture, char *line, int j);
@@ -242,5 +246,5 @@ void				toggle_door(t_data *data);
 int					minimap_init(t_data *data);
 void				draw_minimap(t_data *data, t_img *minimap, t_player *player,
 						char **map);
-
+int	render_frame(void *param);
 #endif

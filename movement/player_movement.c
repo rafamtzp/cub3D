@@ -59,14 +59,14 @@ static void	move_position(t_data *data, t_player *player)
 		player->pos_y = new_y;
 }
 
-static void	rotate_player(t_player *player)
+static void	rotate_player(t_player *player, double rot_amount)
 {
 	double	rotspeed;
 	double	old_dir_x;
 
-	if (player->rotate != 0)
+	if (rot_amount != 0)
 	{
-		rotspeed = 0.03 * player->rotate;
+		rotspeed = 0.03 * rot_amount;
 		old_dir_x = player->dir_x;
 		player->dir_x = player->dir_x * cos(rotspeed) - player->dir_y
 			* sin(rotspeed);
@@ -75,11 +75,31 @@ static void	rotate_player(t_player *player)
 	}
 }
 
+static void	process_mouse_rotation(t_data *data)
+{
+	double	delta_x;
+	double	rot_amount;
+
+	if (!data->win)
+		return ;
+	delta_x = data->player.mouse_x - (WIN_WIDTH / 2.0);
+	if (delta_x != 0)
+	{
+		rot_amount = delta_x * MOUSE_SENS;
+		rotate_player(&data->player, rot_amount);
+	}
+	mlx_mouse_move(data->mlx, data->win, WIN_WIDTH / 2, WIN_HEIGHT / 2);
+	data->player.mouse_x = (double)(WIN_WIDTH / 2);
+	data->player.mouse_y = (double)(WIN_HEIGHT / 2);
+}
+
 /* Update player position */
 void	update_player(t_data *data)
 {
+	if (data->bonus && data->mouse_locked)
+		process_mouse_rotation(data);
 	if (data->player.rotate != 0)
-		rotate_player(&data->player);
+		rotate_player(&data->player, data->player.rotate);
 	if (data->player.move_x != 0 || data->player.move_y != 0)
 		move_position(data, &data->player);
 }

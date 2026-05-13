@@ -41,7 +41,8 @@ SRCS = main.c \
 	ray_casting/ray_cast_calc.c \
 	ray_casting/minimap.c \
 	init/init_player_dir.c \
-	utils/toggle_door.c
+	utils/toggle_door.c \
+	utils/mouse_lock_handler.c
 
 # Files without bonus
 SRC_NB = utils/utils.c \

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   mouse_lock_handler.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/09 13:21:59 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 14:51:20 by dperez-p         ###   ########.fr       */
+/*   Created: 2026/04/09 10:24:21 by dperez-p          #+#    #+#             */
+/*   Updated: 2026/05/09 15:07:59 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-/* Set bonus bool to false */
-void	set_bonus(bool *bonus)
+/* Toggle mouse lock */
+void	mouse_lock_handler(t_data *data)
 {
-	*bonus = false;
-}
-
-/* Set mouse_lock to false */
-void	mouse_locked(bool *mouse_locked)
-{
-	*mouse_locked = false;
+	data->mouse_locked = !data->mouse_locked;
+	if (data->mouse_locked)
+		mlx_mouse_hide(data->mlx, data->win);
+	else
+		mlx_mouse_show(data->mlx, data->win);
 }

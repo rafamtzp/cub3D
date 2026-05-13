@@ -12,8 +12,14 @@
 
 #include "../cub3d.h"
 
-/* Set bonus bool to false */
+/* Set bonus bool to true */
 void	set_bonus(bool *bonus)
 {
 	*bonus = true;
+}
+
+/* Set mouse_lock to true */
+void	mouse_locked(bool *mouse_locked)
+{
+	*mouse_locked = true;
 }

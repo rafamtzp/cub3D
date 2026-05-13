@@ -12,6 +12,17 @@
 
 #include "../cub3d.h"
 
+/* Mouse hook if bonus */
+static int	mouse_hook(int x, int y, void *param)
+{
+	t_data	*data;
+
+	data = (t_data *)param;
+	data->player.mouse_x = (double)x;
+	data->player.mouse_y = (double)y;
+	return (0);
+}
+
 static void	update_axis_values(t_data *data)
 {
 	data->player.move_y = data->keys.w - data->keys.s;
@@ -40,6 +51,8 @@ static int	key_press_handler(int key, t_data *data)
 		data->minimap_on = (data->minimap_on + 1) % 2;
 	if (key == XK_e && data->bonus)
 		toggle_door(data);
+	if (key == XK_z && data->bonus)
+		mouse_lock_handler(data);
 	update_axis_values(data);
 	return (0);
 }
@@ -71,4 +84,6 @@ void	wait_for_input(t_data *data)
 	mlx_hook(data->win, ClientMessage, NoEventMask, quit_cub3d, data);
 	mlx_hook(data->win, KeyPress, KeyPressMask, key_press_handler, data);
 	mlx_hook(data->win, KeyRelease, KeyReleaseMask, key_release_handler, data);
+	if (data->bonus)
+		mlx_hook(data->win, 6, 1L << 6, mouse_hook, data);
 }
