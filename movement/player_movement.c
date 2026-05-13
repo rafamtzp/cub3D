@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:35:57 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/13 14:36:20 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/13 16:27:31 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,14 @@ static void	move_position(t_data *data, t_player *player)
 		player->pos_y = new_y;
 }
 
-static void	rotate_player(t_player *player, double rot_amount, int is_bonus)
+static void	rotate_player(t_player *player, double rot_amount)
 {
 	double	rotspeed;
 	double	old_dir_x;
-	int	bonus_boost;
 
-	bonus_boost = 1;
-	if (is_bonus)
-		bonus_boost = 2;
 	if (rot_amount != 0)
 	{
-		rotspeed = 0.03 * rot_amount * bonus_boost;
+		rotspeed = 0.03 * rot_amount;
 		old_dir_x = player->dir_x;
 		player->dir_x = player->dir_x * cos(rotspeed) - player->dir_y
 			* sin(rotspeed);
@@ -89,8 +85,8 @@ static void	process_mouse_rotation(t_data *data)
 	delta_x = data->player.mouse_x - (WIN_WIDTH / 2.0);
 	if (delta_x != 0)
 	{
-		rot_amount = delta_x * MOUSE_SENS;
-		rotate_player(&data->player, rot_amount, data->bonus);
+		rot_amount = delta_x * MOUSE_SENS * 2;
+		rotate_player(&data->player, rot_amount);
 	}
 	mlx_mouse_move(data->mlx, data->win, WIN_WIDTH / 2, WIN_HEIGHT / 2);
 	data->player.mouse_x = (double)(WIN_WIDTH / 2);
