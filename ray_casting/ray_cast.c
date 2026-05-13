@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 18:21:05 by ramarti2          #+#    #+#             */
-/*   Updated: 2026/05/11 18:44:29 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/13 16:08:53 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void	ray_cast(t_data *data, t_player *player, t_ray *ray)
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->win_img.img, 0, 0);
 	if (data->bonus)
-		draw_minimap(data, &data->minimap, &data->player, data->map);
+		draw_minimap(data, &data->minimap);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:24:21 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/09 15:07:59 by dperez-p         ###   ########.fr       */
+/*   Updated: 2026/05/13 16:08:12 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 static void	print_controls(t_data *data)
 {
-	printf(CYAN "\n");
+	printf(BRIGHT_YELLOW "\n");
 	printf("░█▀▀░█░█░█▀▄░▀▀█░█▀▄░░░█▀▀░█▀█░█▀█░▀█▀░█▀▄░█▀█░█░░░█▀▀\n");
 	printf("░█░░░█░█░█▀▄░░▀▄░█░█░░░█░░░█░█░█░█░░█░░█▀▄░█░█░█░░░▀▀█\n");
 	printf("░▀▀▀░▀▀▀░▀▀░░▀▀░░▀▀░░░░▀▀▀░▀▀▀░▀░▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀▀▀\n");
 	printf(RESET "\n");
-	printf(CYAN "\tW" RESET ": move forward\t");
-	printf(CYAN "\tS" RESET ": move backward\n");
-	printf(CYAN "\tA" RESET ": strafe left\t");
-	printf(CYAN "\tD" RESET ": strafe right\n");
-	printf(CYAN "\t← " RESET ": rotate left\t");
-	printf(CYAN "\t→ " RESET ": rotate right\n");
+	printf(BRIGHT_YELLOW "\tW" RESET ": move forward\t");
+	printf(BRIGHT_YELLOW "\tS" RESET ": move backward\n");
+	printf(BRIGHT_YELLOW "\tA" RESET ": strafe left\t");
+	printf(BRIGHT_YELLOW "\tD" RESET ": strafe right\n");
+	printf(BRIGHT_YELLOW "\t← " RESET ": rotate left\t");
+	printf(BRIGHT_YELLOW "\t→ " RESET ": rotate right\n");
 	if (data->bonus)
 	{
-		printf(CYAN "\tM " RESET ": Show/Hide map");
-		printf(CYAN "\tZ" RESET ": Lock/Unlock Mouse\n");
+		printf(BRIGHT_YELLOW "\tM " RESET ": Show/Hide map");
+		printf(BRIGHT_YELLOW "\tZ" RESET ": Lock/Unlock Mouse\n");
 	}
 	printf("\n");
 }

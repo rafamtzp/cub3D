@@ -1,7 +1,7 @@
 NAME = cub3D
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -std=gnu99
 
 # Directories
 MINILIBX_DIR = minilibx-linux

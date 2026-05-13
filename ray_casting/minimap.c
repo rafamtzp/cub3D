@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 18:20:19 by ramarti2          #+#    #+#             */
-/*   Updated: 2026/05/11 18:20:39 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/13 15:53:54 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,22 @@ int	minimap_init(t_data *data)
 	return (SUCCESS);
 }
 
-void	draw_minimap(t_data *data, t_img *minimap, t_player *player, char **map)
+static void	draw_minimap_tile(t_data *data, t_img *minimap, int i, int j)
+{
+	if ((int)(i / 16) == (int)data->player.pos_y && (int)(j
+			/ 16) == (int)data->player.pos_x)
+		minimap->buf[i * minimap->size_line / 4 + j] = MM_RED;
+	else if (data->map[(int)(i / 16)][(int)(j / 16)] == '1')
+		minimap->buf[i * minimap->size_line / 4 + j] = MM_WHITE;
+	else if (data->map[(int)(i / 16)][(int)(j / 16)] == 'D')
+		minimap->buf[i * minimap->size_line / 4 + j] = MM_BROWN;
+	else if (data->map[(int)(i / 16)][(int)(j / 16)] == 'O')
+		minimap->buf[i * minimap->size_line / 4 + j] = MM_DARK_GRAY;
+	else
+		minimap->buf[i * minimap->size_line / 4 + j] = MM_BLACK;
+}
+
+void	draw_minimap(t_data *data, t_img *minimap)
 {
 	int	i;
 	int	j;
@@ -39,13 +54,7 @@ void	draw_minimap(t_data *data, t_img *minimap, t_player *player, char **map)
 		j = 0;
 		while (j < minimap->size_line / 4)
 		{
-			if ((int)(i / 16) == (int)player->pos_y && (int)(j
-					/ 16) == (int)player->pos_x)
-				minimap->buf[i * minimap->size_line / 4 + j] = 16711680;
-			else if (map[(int)(i / 16)][(int)(j / 16)] == '1')
-				minimap->buf[i * minimap->size_line / 4 + j] = 16777212;
-			else
-				minimap->buf[i * minimap->size_line / 4 + j] = 0;
+			draw_minimap_tile(data, minimap, i, j);
 			j++;
 		}
 		i++;

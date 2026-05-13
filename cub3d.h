@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/11 18:42:59 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/13 15:56:21 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,16 @@
 # define WIN_HEIGHT 900
 # define WIN_WIDTH 1600
 # define TEX_SIZE 64
-# define MOUSE_SENS 0.02
+# define MOUSE_SENS 0.03
 # ifndef O_DIRECTORY
 #  define O_DIRECTORY 00200000
 # endif
+# define MM_RED 16711680
+# define MM_WHITE 16777212
+# define MM_BLACK 0
+# define MM_BROWN 8546348
+# define MM_GRAY 11842740
+# define MM_DARK_GRAY 6710886
 
 /***************************** ERROR_MESSAGE *****************************/
 # define ERROR_USAGE "usage: ./cub3d <path/to/map.cub>"
@@ -89,17 +95,6 @@ typedef struct s_textinfo
 	int				x;
 	int				y;
 }					t_texinfo;
-
-typedef struct s_minimap
-{
-	char			**map;
-	t_img			*img;
-	int				size;
-	int				offset_x;
-	int				offset_y;
-	int				view_dist;
-	int				tile_size;
-}					t_minimap;
 
 typedef struct s_mapinfo
 {
@@ -244,7 +239,6 @@ void				toggle_door(t_data *data);
 
 /* minimap (bonus) */
 int					minimap_init(t_data *data);
-void				draw_minimap(t_data *data, t_img *minimap, t_player *player,
-						char **map);
-int	render_frame(void *param);
+void				draw_minimap(t_data *data, t_img *minimap);
+
 #endif
