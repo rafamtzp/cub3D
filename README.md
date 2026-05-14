@@ -1,5 +1,4 @@
-````markdown
-*This project has been created as part of the 42 curriculum by ramarti2, dperez-p.*
+*This project has been created as part of the 42 curriculum by ramarti2 and dperez-p.*
 
 # cub3D
 
@@ -99,19 +98,20 @@ Run the program with a valid `.cub` map:
 
 ### Controls
 
-| Key       | Action        |
-| --------- | ------------- |
-| `W`       | Move forward  |
-| `S`       | Move backward |
-| `A`       | Move left     |
-| `D`       | Move right    |
-| `←` / `→` | Rotate camera |
-| mouse     | Rotate camera*|
-| `E`       | Open door*    |
-| `M`       | Open minimap* |
-| `ESC`     | Exit game     |
+| Key       | Action         |
+| --------- | ---------------|
+| `W`       | Move forward   |
+| `S`       | Move backward  |
+| `A`       | Move left      |
+| `D`       | Move right     |
+| `←` / `→` | Rotate camera  |
+| mouse     | Rotate camera* |
+| `E`       | Open door*     |
+| `M`       | Open minimap*  |
+| `ESC`     | Exit game      |
 
 \* bonus feature
+
 ---
 
 ## Map Format
@@ -130,6 +130,8 @@ SO textures/south.xpm
 WE textures/west.xpm
 EA textures/east.xpm
 
+DOOR bonus_assets/door.xpm (bonus)
+
 F 220,100,0
 C 225,30,0
 
@@ -147,6 +149,8 @@ C 225,30,0
   * `0` → empty space
   * `1` → wall
   * `N/S/E/W` → player spawn position and direction
+  * `D` → closed door (bonus)
+  * `O` → open door (bonus) 
 * Only one player starting position is allowed
 
 ---
@@ -186,10 +190,8 @@ Some of the main challenges encountered during development included:
 ### Documentation & Tutorials
 
 * MiniLibX Documentation
-* Lode Vandevenne’s Raycasting Tutorial
-  [https://lodev.org/cgtutor/raycasting.html](https://lodev.org/cgtutor/raycasting.html)
-* Medium Article on Cub3D by Abdilah CH
-    [https://devabdilah.medium.com/3d-ray-casting-game-with-cub3d-7a116376056a]
+* [Lode Vandevenne’s Raycasting Tutorial](https://lodev.org/cgtutor/raycasting.html)
+* [Medium Article on Cub3D by Abdilah CH](https://devabdilah.medium.com/3d-ray-casting-game-with-cub3d-7a116376056a)
 * 42 Subject PDF
 
 ### AI Usage
