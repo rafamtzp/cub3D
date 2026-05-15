@@ -32,6 +32,7 @@ This project focuses on:
 
 ### Bonus Features
 
+- Collisions
 - Minimap
 - Mouse rotation
 - Doors that open and close
@@ -150,7 +151,6 @@ C 225,30,0
   * `1` → wall
   * `N/S/E/W` → player spawn position and direction
   * `D` → closed door (bonus)
-  * `O` → open door (bonus) 
 * Only one player starting position is allowed
 
 ---
