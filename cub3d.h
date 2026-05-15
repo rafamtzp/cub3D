@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 10:27:43 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/13 15:56:21 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:59:15 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CUB3D_H
 
 # include "./libft_complete/ft_libft/libft.h"
-# include "colors.h"
 # include "minilibx-linux/mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
@@ -38,6 +37,13 @@
 # ifndef O_DIRECTORY
 #  define O_DIRECTORY 00200000
 # endif
+
+// terminal colors
+# define RESET	"\e[0m"
+# define RED	"\e[31m"
+# define BRIGHT_YELLOW	"\e[93m"
+
+// minimap colors
 # define MM_RED 16711680
 # define MM_WHITE 16777212
 # define MM_BLACK 0

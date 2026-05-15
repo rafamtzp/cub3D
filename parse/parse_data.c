@@ -6,7 +6,7 @@
 /*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 10:52:32 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/11 18:04:39 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/15 12:00:14 by ramarti2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ void	parse_data(char *path, t_data *data)
 {
 	data->mapinfo.line_count = get_number_lines(path);
 	if (data->mapinfo.line_count <= 0)
+	{
+		err_msg(NULL, "Map is empty", 0);
 		return ;
+	}
 	data->mapinfo.path = path;
 	data->mapinfo.file = ft_calloc(data->mapinfo.line_count + 1,
 			sizeof(char *));
