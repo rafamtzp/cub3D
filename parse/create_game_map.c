@@ -74,7 +74,7 @@ static int	count_map_lines(char **file, int i)
 }
 
 /* Count the max width of the map until the calculated height */
-static int	get_max_width(char **file, int i, int height)
+static int	get_max_width(char **file, int i)
 {
 	int	max_w;
 	int	len;
@@ -82,15 +82,17 @@ static int	get_max_width(char **file, int i, int height)
 
 	max_w = 0;
 	n = 0;
-	while (file[i] && n < height)
+	while (file[i])
 	{
 		len = ft_strlen(file[i]);
 		if (len > max_w)
+		{
 			max_w = len;
+			n = i;
+		}
 		i++;
-		n++;
 	}
-	if (max_w > 0 && file[i - 1][max_w - 1] == '\n')
+	if (max_w > 0 && file[n][max_w - 1] == '\n')
 		max_w--;
 	return (max_w);
 }
@@ -99,7 +101,11 @@ static int	get_max_width(char **file, int i, int height)
 int	create_map(t_data *data, char **file, int i)
 {
 	data->mapinfo.height = count_map_lines(file, i);
-	data->mapinfo.width = get_max_width(file, i, data->mapinfo.height);
+	if (!data->mapinfo.height)
+		return (err_msg(NULL, "Map height failed ", FAILURE));
+	data->mapinfo.width = get_max_width(file, i);
+	if (!data->mapinfo.width)
+		return (err_msg(NULL, "Map width failed ", FAILURE));
 	data->mapinfo.index_end_of_map = i + data->mapinfo.height;
 	data->map = ft_calloc(data->mapinfo.height + 1, sizeof(char *));
 	if (!data->map)

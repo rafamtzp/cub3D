@@ -29,7 +29,10 @@ static void	print_controls(t_data *data)
 	{
 		printf(BRIGHT_YELLOW "\tM " RESET ": Show/Hide map");
 		printf(BRIGHT_YELLOW "\tZ" RESET ": Lock/Unlock Mouse\n");
+		printf(BRIGHT_YELLOW "\tE" RESET ": Lock/Unlock Doors\n");
 	}
+	printf("\n");
+	printf(BRIGHT_YELLOW "\t	   ESC " RESET ": to quit\n");
 	printf("\n");
 }
 
