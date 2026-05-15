@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramarti2 <ramarti2@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: dperez-p <dperez-p@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:35:57 by dperez-p          #+#    #+#             */
-/*   Updated: 2026/05/13 16:30:42 by ramarti2         ###   ########.fr       */
+/*   Updated: 2026/05/15 17:10:08 by dperez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	is_valid_pos(t_data *data, double x, double y)
 	return (1);
 }
 
-/* Update movement position and check wall colision */
+/* Update movement position and check wall collision */
 static void	move_position(t_data *data, t_player *player)
 {
 	double	new_x;
