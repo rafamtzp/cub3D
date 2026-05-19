@@ -1,6 +1,10 @@
 *This project has been created as part of the 42 curriculum by ramarti2 and dperez-p.*
 
-# cub3D
+# cub3D 🧱
+
+<img width="800" height="465" alt="optimized_cub3d" src="https://github.com/user-attachments/assets/f48751a8-694a-4c79-9d79-3fcda929859d" />
+
+---
 
 ## Description
 
