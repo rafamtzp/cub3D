@@ -1,0 +1,7 @@
+Possible improvement ideas:
+
+- Fix dropped framerate when opening minimap (performance)
+- Add moving entity sprite that chases you around and kills you
+- make Makefile improve nicer messages and put object files in a temporary directory
+
+- Add textured ceiling and floor
